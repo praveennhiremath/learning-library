@@ -12,27 +12,31 @@
             "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/pre-register-free-tier-account.md"
         },
         {
-            "title": "Lab 1: Collect details of the application using SQL Tuning Sets",
+            "title": "Lab 1: Setup the lab environment",
+            "filename": "../../setup/setup.md"
+        },
+        {
+            "title": "Lab 2: Collect details of the application using SQL Tuning Sets",
             "filename": "../../collect-usage/collect-usage.md"
         },
         {
-            "title": "Lab 2: Determine the affinity between tables",
+            "title": "Lab 3: Determine the affinity between tables",
             "filename": "../../calculate-affinity/calculate-affinity.md"
         },
         {
-            "title": "Lab 3: Construct a graph using the collected data",
+            "title": "Lab 4: Construct a graph using the collected data",
             "filename": "../../construct-graph/construct-graph.md"
         },
         {
-            "title": "Lab 4: Run the community detection algorithm",
+            "title": "Lab 5: Run the community detection algorithm",
             "filename": "../../detect-communities/detect-communities.md"
         },
         {
-            "title": "Lab 5: Analyze the sub-graphs and adjust constraints",
+            "title": "Lab 6: Analyze the sub-graphs and adjust constraints",
             "filename": "../../analyze-results/analyze-results.md"
         },
         {
-            "title": "Lab 6: Convert sub-graphs to microservices schema",
+            "title": "Lab 7: Convert sub-graphs to microservices schema",
             "filename": "../../convert-schema/convert-schema.md"
         },
         {
