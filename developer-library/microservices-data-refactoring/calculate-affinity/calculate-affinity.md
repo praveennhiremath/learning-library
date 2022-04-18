@@ -112,17 +112,26 @@ In this task, we will create a set of metadata tables that we will use to store 
 
 ## Task 2: Compute Affinities
 
-1. Create the procedure to compute the affinities between tables.  This is the procedure we will use to compute the affinities.  This procedure reads the information from the SQL Tuning Set that we created in the previous lab and calculates the affinity between tables based on how many times they are used in SQL statements together, and how they are used.
+1. Create the procedure to compute the affinities between tables.  This is the procedure we will use to compute the affinities.  This procedure reads the information from the SQL Tuning Set that we created in the previous lab and calculates the affinity between tables based on how many times they are used in SQL statements together, and how they are used.  The procedure does the following:
 
-    The procedure does the following:
-
-    * Get a list of the SQL statements that were run in the captured workload and which used at least one of the tables that we are interested in, either by reading an index or the table itself,
-    * For each pair of tables, work out how many times that pair was used in a join and how many times they were used overall,
-    * Work out what fraction of statements this pair was used in,
+    For each table in the set that we are interested in, which was accessed during the workload capture:
+    * Get a list of the SQL statements that used that table, either by reading an index or the table itself,
+    * For each table that table was joined with, i.e. each pair of tables, work out how many times that pair were joined,
+    * Work out what fraction of statements this pair was joined in,
     * Apply weights for joins and executions (50% each) and calculate the total affinity between the tables,
-    * For each table, work out how many other tables it was joined to in total.
+    * Work out how many other tables it was joined to in total.
 
-    TODO - add some info here on what the static/dynamic coeffients mean
+    After running this procedure, we have data similar to this in the `TABLE_MAP` table (some rows and columns omitted):
+
+    | TABLE1 | TABLE2 |  JOIN_COUNT | JOIN_EXECUTIONS | STATIC_COEFFICIENT | DYNAMIC_COEFFICIENT | TOTAL_AFFINITY 
+    | --- | --- | --- | --- | --- | --- | --- 
+    | DRA_36	| DRA_19	| 2	| 4	| 0.28571	| 0.28571	| 0.28571 
+    | DRA_36	| DRA_20	| 2	| 4	| 0.25	| 0.25 |	0.25
+    | DRA_36	| DRA_21	| 2	| 4	| 0.4	| 0.4	| 0.4
+    | DRA_36	| DRA_22	| 2	| 4	| 0.33333	| 0.33333	| 0.33333
+    | DRA_36	| DRA_24	| 1	| 2	| 0.125	| 0.125	| 0.125
+
+    The first row, for example, tells us that the table `DRA_36` was joined to `DRA_19` twice, and that those two tables were joined in 28.571% of all statements involving either one of those tables.
 
     Execute the following statements to create the procedure:
 
@@ -188,28 +197,30 @@ In this task, we will create a set of metadata tables that we will use to store 
                                 sql_id,
                                 executions 
                             from ( 
-                                select '}'||r.table_name||q'{' tbl1, 
-                                s.object_name tbl2, 
-                                i.table_name table_name, 
-                                sql_id, 
-                                operation, 
-                                executions 
-                            from dba_sqlset_plans s, all_indexes i 
-                            where sqlset_name='tkdradata' 
-                            and object_owner=upper('tkdradata') 
-                            and s.object_name = i.index_name(+) 
-                            and sql_id in (
-                                select distinct sql_id 
-                                from dba_sqlset_plans 
+                                select 
+                                    '}'||r.table_name||q'{' tbl1, 
+                                    s.object_name tbl2, 
+                                    i.table_name table_name, 
+                                    sql_id, 
+                                    operation, 
+                                    executions 
+                                from dba_sqlset_plans s, all_indexes i 
                                 where sqlset_name='tkdradata' 
-                                and object_name='}'||r.table_name||q'{' 
-                                and  object_owner=upper('tkdradata')
-                            ) 
-                        ) v 
-                    ) v1  
-                    group by v1.tbl1, v1.tbl2   
-                    having v1.tbl2 is not null 
-                    and v1.tbl1 <> v1.tbl2 ) v2 
+                                and object_owner=upper('tkdradata') 
+                                and s.object_name = i.index_name(+) 
+                                and sql_id in (
+                                    select distinct sql_id 
+                                    from dba_sqlset_plans 
+                                    where sqlset_name='tkdradata' 
+                                    and object_name='}'||r.table_name||q'{' 
+                                    and  object_owner=upper('tkdradata')
+                                ) 
+                            ) v 
+                        ) v1  
+                        group by v1.tbl1, v1.tbl2   
+                        having v1.tbl2 is not null 
+                        and v1.tbl1 <> v1.tbl2 
+                    ) v2 
                 )
             }';
             execute immediate ins_sql;
