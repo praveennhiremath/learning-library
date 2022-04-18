@@ -90,10 +90,10 @@ In this task, we will create a set of metadata tables that we will use to store 
 
     **Note**: This code is provided in the file `load-graph-tables.sql`.
 
-4. We will also create a helper view that we will use in the affinity calculation.  Execute the following command to create the view:
+3. We will also create a helper view that we will use in the affinity calculation.  Execute the following command to create the view:
 
     ```
-    create view tableset_sql as 
+    <copy>create view tableset_sql as 
     select distinct table_name, sql_id 
     from (
         select 'tkdradata' table_set_name,
@@ -111,7 +111,7 @@ In this task, we will create a set of metadata tables that we will use to store 
             and sqlset_name='tkdradata' 
             and object_owner = 'TKDRADATA'
         ) v
-    );
+    );</copy>
     ```
 
     **Note**: This code is provided in the file `create-helper-view.sql`.
@@ -142,12 +142,12 @@ In this task, we will create a set of metadata tables that we will use to store 
     Execute the following statements to create the procedure:
 
     ```
-    create or replace procedure compute_affinity_tkdra as
+    <copy>create or replace procedure compute_affinity_tkdra as
     cursor c is
     select table_name, schema from tableset_tables;
     tblnm varchar2(128);
-    ins_sql varchar2(2000);
-    upd_sql varchar2(2000);
+    ins_sql varchar2(4000);
+    upd_sql varchar2(4000);
     begin
         for r in c loop
             ins_sql:= q'{
@@ -267,7 +267,7 @@ In this task, we will create a set of metadata tables that we will use to store 
         end loop;
 
     end;
-    /
+    /</copy>
     ```
 
     **Note**: This code is provided in the file `compute-affinity.sql`.
