@@ -136,6 +136,8 @@ TODO write me.
     / </copy>
     ```
 
+    **Note**: This command is provided in the file `load-sts.sql`.
+
 2. You can check that data was loaded using this command:
 
     ```

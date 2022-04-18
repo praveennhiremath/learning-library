@@ -55,6 +55,8 @@ In this task, we will create a set of metadata tables that we will use to store 
     , total_affinity       decimal(10,5));</copy>
     ```
 
+    **Note**: This code is provided in the file `create-graph-tables.sql`.
+
 2. In this step, we will populate the `TABLESET_TABLES` table, which will become the vertices in our graph.  Execute the following commands to populate the table:
 
     ```
@@ -86,6 +88,8 @@ In this task, we will create a set of metadata tables that we will use to store 
     having table_name is not null;</copy>
     ```
 
+    **Note**: This code is provided in the file `load-graph-tables.sql`.
+
 4. We will also create a helper view that we will use in the affinity calculation.  Execute the following command to create the view:
 
     ```
@@ -109,6 +113,8 @@ In this task, we will create a set of metadata tables that we will use to store 
         ) v
     );
     ```
+
+    **Note**: This code is provided in the file `create-helper-view.sql`.
 
 ## Task 2: Compute Affinities
 
@@ -263,6 +269,8 @@ In this task, we will create a set of metadata tables that we will use to store 
     end;
     /
     ```
+
+    **Note**: This code is provided in the file `compute-affinity.sql`.
 
 2. Run the procedure to compute affinities.
 
