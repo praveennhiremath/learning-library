@@ -72,12 +72,12 @@ When you ran the `setup.sh` script in the previous lab, it created a database us
 
     **Note**:  This command is provided in the file `create-tables.sql`.
 
-2. You can validate the tables with this command:
+2. You can validate the tables with this command, which should show you ten tables names `DRA_x` where `x` is a number:
 
     ```
-    <copy>select sqlset_name, count(distinct sql_id)
-    from dba_sqlset_plans 
-    group by sqlset_name;</copy>
+    <copy>select table_name
+    from user_tables
+    fetch first 10 rows only;</copy>
     ```
 
 ## Task 3: Prepare the SQL Tuning Set
@@ -110,11 +110,14 @@ Now we will create some simulated application workload.  In a real-world scenari
 
 ## Task 5: Load the SQL Tuning Set
 
-TODO write me.
+**Note**: The commands in this task **must** be run as the `ADMIN` user.  To open an SQL Worksheet for the `ADMIN` user, repeat steps 1 and 2 in Task 1.
 
-1. Load the workload data into the SQL Tuning Set using this command"
+TODO write me.  
+
+1. Being careful to ensure you run this command as the `ADMIN` user, not `TKDRADATA`, load the workload data into the SQL Tuning Set using this command:
 
     ```
+    -- run this as the ADMIN user
     <copy>DECLARE
       cur DBMS_SQLTUNE.SQLSET_CURSOR;
     BEGIN
@@ -133,6 +136,20 @@ TODO write me.
     / </copy>
     ```
 
+2. You can check that data was loaded using this command:
+
+    ```
+    <copy>select sqlset_name, count(distinct sql_id) 
+    from dba_sqlset_plans 
+    group by sqlset_name;</copy>
+    ```
+
+    This should return a non-zero value in the `tkdradata` row.  There may be other rows, but you can safely ignore them.  If you get zero, then please go back over the previous steps to make sure you did not miss a step.
+
+
+Once this has been completed you are ready to **proceed to the next lab.**
+
+
 ## Learn More
 
 *(optional - include links to docs, white papers, blogs, etc)*
@@ -141,6 +158,6 @@ TODO write me.
 * [URL text 2](http://docs.oracle.com)
 
 ## Acknowledgements
-* **Author** - <Name, Title, Group>
-* **Contributors** -  <Name, Group> -- optional
-* **Last Updated By/Date** - <Name, Month Year>
+- **Author** - Mayank Tayal, Developer Advocate
+- **Contributors** - Mark Nelson, Developer Evangelist
+- **Last Updated By/Date** - Mayank Tayal, April 2022
