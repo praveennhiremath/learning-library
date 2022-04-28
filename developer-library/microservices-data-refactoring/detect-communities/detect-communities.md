@@ -2,25 +2,22 @@
 
 ## Introduction
 
-*Describe the lab in one or two sentences, for example:* This lab walks you through the steps to ...
+*In this lab, using the graphs which are created in the previous labs, we applied the community detection alogirims which identifies the communities with the graphs. The community detection algorithm takes the input graphs and identities strong connectivity within graphs and forms a smaller communities. It decomposes the monolith database schema(graph) into modular microservice schemas(sub-graphs). 
+*Here we used Oracle Graphs for representations and the usage of the Louvain Method via the APIs exposed by the PGX library. 
+*Louvain method is used for community detection in this lab.
 
-Estimated Lab Time: -- minutes
-
-### About <Product/Technology> (Optional)
-Enter background information here about the technology/feature or product used in this lab - no need to repeat what you covered in the introduction. Keep this section fairly concise. If you find yourself needing more than to sections/paragraphs, please utilize the "Learn More" section.
+Estimated Lab Time: 15 minutes
 
 ### Objectives
 
 *List objectives for this lab using the format below*
 
 In this lab, you will:
-* Objective 1
-* Objective 2
-* Objective 3
+* Identify the smaller communities from the input graph.
+* The monolith database schema(graph) is transformed into modular microservice schemas(sub-graphs)
 
 ### Prerequisites (Optional)
 
-*List the prerequisites for this lab using the format below. Fill in whatever knowledge, accounts, etc. is necessary to complete the lab. Do NOT list each previous lab as a prerequisite.*
 
 This lab assumes you have:
 * An Oracle account
@@ -29,64 +26,74 @@ This lab assumes you have:
 
 *This is the "fold" - below items are collapsed by default*
 
-## Task 1: Concise Step Description
-
+## Task 1: Create a Notebook
+	- Oracle Graph Studio > Login using GRAPHUSER 
 (optional) Step 1 opening paragraph.
 
-1. Sub step 1
+1. Oracle Graph Studio
 
-	![Image alt text](images/sample1.png)
+	![Image alt text](./images/sample1.png)
 
-2. Sub step 2
+2. Login using GRAPHUSER
 
-  ![Image alt text](images/sample1.png)
+  ![Image alt text](./images/sample1.png)
 
-4. Example with inline navigation icon ![Image alt text](images/sample2.png) click **Navigation**.
-
+4. Create a new notebook
+	*Go to Notebooks tab 
+	![Image alt text](./images/sample1.png)
+	*click on Create button
+	![Image alt text](./images/sample1.png)
+	*Give a name to notebook
+	![Image alt text](./images/sample1.png)
+	*click on Create button
+	![Image alt text](./images/sample1.png)
 5. Example with bold **text**.
 
    If you add another paragraph, add 3 spaces before the line.
 
-## Task 2: Concise Step Description
+## Task 2: Run the pgql query on the to see the main graph
 
-1. Sub step 1 - tables sample
+1. Create a paragraph
+  ![Image alt text](./images/sample1.png)
+2. View the main graph
+	<copy>
+	%pgql-pgx
+	select * from match (s)-[t]->(d) on cerner_graph 
+	</copy>
 
-  Use tables sparingly:
+3. Run the paragraph
+  ![Image alt text](./images/sample1.png)
+4. You will see the below kind of graph in UI
+  ![Image alt text](./images/main-graph.PNG)
+## Task 3: Run the Louvain Algorithm to identify the communities within a graph
 
-  | Column 1 | Column 2 | Column 3 |
-  | --- | --- | --- |
-  | 1 | Some text or a link | More text  |
-  | 2 |Some text or a link | More text |
-  | 3 | Some text or a link | More text |
+1. Create a paragraph
+2. Run the louvain algorithm
+	<copy>
+	%java-pgx
+	session.readGraphByName("CERNERGRAPH", GraphSource.PG_VIEW);
+	PgxGraph graph = session.getGraph("CERNERGRAPH");
+	EdgeProperty<Double> weightProp = graph.getEdgeProperty("TOTAL_AFFINITY");
+	VertexProperty<?, Long> communityProp = analyst.louvain(graph, weightProp,1);
+	String communityPropName = communityProp.getName();
+	for (PgxResult result : graph.queryPgql("SELECT v." + communityPropName + " MATCH (v) GROUP BY v." + communityPropName +"")) {
+		long communityId = result.getLong(1); // get the id of the community
+		out.println("communityId : " + communityId);
+		// iterate through the vertices from that community listed by PGQL
+		for (PgxResult resultVertices : graph.queryPgql("SELECT v MATCH (v) where v." + communityPropName + " = " + communityId)) {
+			PgxVertex<?> vertex = resultVertices.getVertex(1); // get the vertex
+			out.println("vertex : " + vertex);
+		}
+	}
+	</copy>
 
-2. You can also include bulleted lists - make sure to indent 4 spaces:
-
-    - List item 1
-    - List item 2
-
-3. Code examples
-
-    ```
-    Adding code examples
-  	Indentation is important for the code example to appear inside the step
-    Multiple lines of code
-  	<copy>Enclose the text you want to copy in <copy></copy>.</copy>
-    ```
-
-4. Code examples that include variables
-
-	```
-  <copy>ssh -i <ssh-key-file></copy>
-  ```
+3. Run the paragraph
+  ![Image alt text](./images/sample1.png)
 
 ## Learn More
 
-*(optional - include links to docs, white papers, blogs, etc)*
-
-* [URL text 1](http://docs.oracle.com)
-* [URL text 2](http://docs.oracle.com)
-
 ## Acknowledgements
-* **Author** - <Name, Title, Group>
-* **Contributors** -  <Name, Group> -- optional
-* **Last Updated By/Date** - <Name, Month Year>
+* **Author** - Praveen Hiremath, Developer Advocate
+* **Contributors** -  Praveen Hiremath, Developer Advocate
+* **Last Updated By/Date** - Praveen Hiremath, Product Management, April 2022 
+

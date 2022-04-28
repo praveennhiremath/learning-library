@@ -156,17 +156,8 @@ Please **proceed to the next lab** to do so.
 ## Acknowledgements
 * **Author** - Praveen Hiremath, Developer Advocate
 * **Contributors** -  Praveen Hiremath, Developer Advocate
-* **Last Updated By/Date** - Jayant Sharma, Product Management, April 2022 
-  ```
+* **Last Updated By/Date** - Praveen Hiremath, Product Management, April 2022 
 
 ## Learn More
 
-*(optional - include links to docs, white papers, blogs, etc)*
 
-* [URL text 1](http://docs.oracle.com)
-* [URL text 2](http://docs.oracle.com)
-
-## Acknowledgements
-* **Author** - <Name, Title, Group>
-* **Contributors** -  <Name, Group> -- optional
-* **Last Updated By/Date** - <Name, Month Year>
