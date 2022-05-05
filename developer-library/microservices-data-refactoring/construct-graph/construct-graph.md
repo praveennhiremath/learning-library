@@ -16,13 +16,54 @@ In this lab :
 
 This lab assumes you have:
 * An Oracle account
-* This lab requires an Autonomous Database - Shared Infrastructure account.
-* And that the Graph-enabled user (GRAPHUSER) exists. That is, a database user with the correct roles and privileges exists.
-
+* This lab requires an Autonomous Database - Shared Infrastructure or Autonomous Transaction Processing - Shared Infrastructure account .
 
 *This is the "fold" - below items are collapsed by default*
 
-## Task 1: Connect to your Autonomous Database using Graph Studio
+## Task 1: Connect to the Database Actions for your Autonomous Database instance
+
+
+1. Open the service detail page for your Autonomous Database instance in the OCI console.  
+
+   Then click the **Database Actions** link to open it. 
+   
+   ![ALT text is not available for this image](images/create-user/open-database-actions.png " ")
+
+## Task 2: Create the web access and graph-enabled user
+
+1. Login as the ADMIN user for your Autonomous Database instance. 
+
+    ![ALT text is not available for this image](./images/create-user/login.png " ")
+
+2. Click  the **DATABASE USERS** tile under **Administration**. 
+   
+   ![ALT text is not available for this image](./images/create-user/db-actions-users.png " ")
+   
+3. Click the **+ Create User** icon.
+
+    ![ALT text is not available for this image](./images/create-user/db-actions-create-user.png " ")
+
+4. Enter the required details, i.e. user name and password. Turn on the **Graph Enable** and **Web Access** radio buttons. And select a quota, e.g. **UMLIMITED**,  to allocate on the `DATA` tablespace.   
+
+   Note: The password should meet the following requirements:
+
+   - The password must be between 12 and 30 characters long and must include at least one uppercase letter, one lowercase letter, and one numeric character.
+   - The password cannot contain the username.
+   - The password cannot contain the double quote (“) character.
+   - The password must be different from the last 4 passwords used for this user.
+   - The password must not be the same password that is set less than 24 hours ago.
+   
+   ![ALT text is not available for this image](images/create-user/db-actions-create-graph-user.png " ")
+
+   **Note: Please do not Graph Enable the ADMIN user and do not login to Graph Studio as the ADMIN user. The ADMIN user has additional privileges by default. Create and use an account with only the necessary privileges for with with graph data and analytics.**
+
+   Click the **Create User** button at the bottom of the panel to create the user with the specified credentials.
+
+   The newly created user will now be listed.
+
+   ![ALT text is not available for this image](./images/create-user/db-actions-user-created.png " ")   
+
+## Task 3: Connect to your Autonomous Database using Graph Studio
 
 1. If you have the Graph Studio URL then proceed to step 4. 
 
@@ -44,7 +85,7 @@ This lab assumes you have:
 
     ![ALT text is not available for this image](./images/gs-graphuser-home-page.png " ") 
 	
-## Task 2: Create a graph of accounts and transactions from the corresponding tables
+## Task 4: Create a graph of accounts and transactions from the corresponding tables
 
 1. Click the **Models** icon to navigate to the start of the modeling workflow.  
    Then click **Create**.  
