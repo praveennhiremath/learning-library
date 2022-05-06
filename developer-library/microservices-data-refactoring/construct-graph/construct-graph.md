@@ -197,7 +197,7 @@ Please **proceed to the next lab** to do so.
 ## Acknowledgements
 * **Author** - Praveen Hiremath, Developer Advocate
 * **Contributors** -  Praveen Hiremath, Developer Advocate
-* **Last Updated By/Date** - Praveen Hiremath, Product Management, April 2022 
+* **Last Updated By/Date** - Praveen Hiremath, Developer Advocate, May 2022 
 
 ## Learn More
 

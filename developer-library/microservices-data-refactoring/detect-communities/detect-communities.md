@@ -95,5 +95,5 @@ This lab assumes you have:
 ## Acknowledgements
 * **Author** - Praveen Hiremath, Developer Advocate
 * **Contributors** -  Praveen Hiremath, Developer Advocate
-* **Last Updated By/Date** - Praveen Hiremath, Product Management, April 2022 
+* **Last Updated By/Date** - Praveen Hiremath, Developer Advocate, May 2022 
 
