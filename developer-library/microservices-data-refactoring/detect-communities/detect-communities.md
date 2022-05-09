@@ -56,10 +56,10 @@ This lab assumes you have:
 1. Create a paragraph
   ![Image alt text](./images/sample1.png)
 2. View the main graph
-	<copy>
+	```<copy>
 	%pgql-pgx
 	select * from match (s)-[t]->(d) on cerner_graph 
-	</copy>
+	</copy>```
 
 3. Run the paragraph
   ![Image alt text](./images/sample1.png)
@@ -69,7 +69,7 @@ This lab assumes you have:
 
 1. Create a paragraph
 2. Run the louvain algorithm
-	<copy>
+	```<copy>
 	%java-pgx
 	session.readGraphByName("CERNERGRAPH", GraphSource.PG_VIEW);
 	PgxGraph graph = session.getGraph("CERNERGRAPH");
@@ -85,7 +85,7 @@ This lab assumes you have:
 			out.println("vertex : " + vertex);
 		}
 	}
-	</copy>
+	</copy>```
 
 3. Run the paragraph
   ![Image alt text](./images/sample1.png)
