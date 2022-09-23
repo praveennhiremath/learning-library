@@ -2,23 +2,21 @@
 
 ## Introduction
 
-*In this lab, we will create the graph model from the data which are extracted from the previous labs for which tables and the affinity the between the tables are calculated.
+In this lab, we will create the graph model from the data which are extracted from the previous labs for which tables and the affinity the between the tables are calculated.
 
 Estimated Lab Time: 15 minutes
 
 ### Objectives
 
 In this lab :
-- Using the Graph Studio, to create a model and the graph from the tables created in Lab 2
+- Using the Graph Studio, we create a model and the graph from the tables created in Lab 2
 
 
 ### Prerequisites (Optional)
 
 This lab assumes you have:
 * An Oracle account
-* This lab requires an Autonomous Database - Shared Infrastructure or Autonomous Transaction Processing - Shared Infrastructure account .
-
-*This is the "fold" - below items are collapsed by default*
+* This lab requires an Autonomous Database - Shared Infrastructure or Autonomous Transaction Processing - Shared Infrastructure account.
 
 ## Task 1: Connect to the Database Actions for your Autonomous Database instance
 
