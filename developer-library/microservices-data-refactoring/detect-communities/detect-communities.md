@@ -9,7 +9,7 @@ Estimated Lab Time: 15 minutes
 ### Objectives
 
 In this lab, you will:
-* create a graph in Data Studio
+* Create a graph in Data Studio
 * Detect the communities using the Infomap.
 
 ### Prerequisites
@@ -19,456 +19,368 @@ This lab assumes you have:
 * All previous labs were completed successfully.
 
 ## Task 1: Create the Bucket in OCI Compartment.
+
+1. Clone the DRA Community Detection Client from the github.
+	~~~ 
+	git clone https://github.com/oracle/DRACommunityDetection.git 
+	~~~
+2. Compile the maven project
+	~~~
+	mvn compile
+	~~~
+
+3. Execute the project to see the identified clusters using the Infomap Algorithm
+	~~~
+	mvn exec:java -Dexec.mainClass=com.oracle.ms.app.InfomapGraphClient
+	~~~
+	Where 
+   - com.oracle.ms.app.InfomapGraphClient - Main class which loads the graph and runs the Infomap to identify the Clusters.
+
+
+Output:
+	~~~
+	job details: name=Environment Creation - 18 GBstype= ENVIRONMENT_CREATIONcreated_by= ADMIN
+	Graph : PgxGraph[name=MED_REC_PG_OBJ_G,N=259,E=972,created=1664544333468]
+
+	The table names with the same community Ids formed the clusters below.
+	+----------------------------------------+
+	| Community | TABLE_NAME                 |
+	+----------------------------------------+
+	| 0         | PRSNL_RELTN_ACTIVITY       |
+	| 0         | CLINICAL_SERVICE_RELTN     |
+	| 0         | ENCNTR_PRSNL_RELTN         |
+	| 0         | PE_STATUS_REASON           |
+	| 0         | PCT_CARE_TEAM              |
+	| 0         | PERSON_PERSON_RELTN        |
+	| 0         | PERSON_INFO                |
+	| 0         | DEPT_ORD_STAT_SECURITY     |
+	| 0         | PERSON_PRSNL_RELTN         |
+	| 0         | PRSNL_ORG_RELTN            |
+	| 0         | ENCOUNTER                  |
+	| 0         | ORD_RQSTN_ORD_R            |
+	| 0         | PRSNL_RELTN                |
+	| 0         | ORG_ALIAS_POOL_RELTN       |
+	| 0         | LOCATION                   |
+	| 0         | ORGANIZATION               |
+	| 0         | CODE_VALUE_EXTENSION       |
+	| 0         | SCH_APPT                   |
+	| 0         | ENCNTR_INFO                |
+	| 0         | PRSNL_ALIAS                |
+	| 0         | SCH_EVENT                  |
+	| 0         | SCH_EVENT_ALIAS            |
+	| 1         | PROC_CLASSIFICATION        |
+	| 2         | OCS_FACILITY_R             |
+	| 3         | SYNONYM_ITEM_R             |
+	| 4         | SHARED_VALUE_GTTD          |
+	| 5         | RAD_REPORT_DETAIL          |
+	| 6         | IMAGE_CLASS_TYPE           |
+	| 7         | RAD_FOLLOW_UP_CONTROL      |
+	| 8         | DRC_PREMISE                |
+	| 9         | ORG_ORG_RELTN              |
+	| 10        | PENDING_COLLECTION         |
+	| 10        | PERSON_COMBINE_DET         |
+	| 10        | OE_FORMAT_FIELDS           |
+	| 10        | COLLECTION_PRIORITY        |
+	| 10        | ORDER_LABORATORY           |
+	| 10        | ACCESSION                  |
+	| 10        | ACCESSION_ORDER_R          |
+	| 10        | ORDERS                     |
+	| 10        | ORDER_REVIEW               |
+	| 10        | UCM_CASE_STEP              |
+	| 10        | UCMR_CASE_TYPE             |
+	| 10        | ORDER_CONTAINER_R          |
+	| 10        | ORDER_ENTRY_FIELDS         |
+	| 10        | ORDER_DETAIL               |
+	| 10        | ORDER_SUPPLY_REVIEW        |
+	| 10        | UCM_CASE                   |
+	| 10        | ORDER_TASK                 |
+	| 10        | ORDER_ACTION               |
+	| 10        | TASK_ACTIVITY              |
+	| 10        | SCH_EVENT_ATTACH           |
+	| 10        | NETTING                    |
+	| 10        | TRACKING_EVENT             |
+	| 10        | ORDER_TASK_RESPONSE        |
+	| 10        | PRICE_SCHED                |
+	| 10        | TASK_RELTN                 |
+	| 10        | PERSON_COMBINE             |
+	| 10        | SERVICE_DIRECTORY          |
+	| 10        | OUTPUT_DEST                |
+	| 10        | SHARED_LIST_GTTD           |
+	| 10        | ACTIVITY_DATA_RELTN        |
+	| 10        | TRACK_EVENT                |
+	| 10        | ENCNTR_LOC_HIST            |
+	| 11        | PRIVILEGE                  |
+	| 12        | TRACKING_PRSNL_REF         |
+	| 13        | ORDER_PRODUCT              |
+	| 13        | WARNING_LABEL              |
+	| 13        | MED_INGRED_SET             |
+	| 13        | ALT_SEL_CAT                |
+	| 13        | RX_CURVE                   |
+	| 13        | MED_PACKAGE_TYPE           |
+	| 13        | MEDICATION_DEFINITION      |
+	| 13        | MED_DEF_FLEX               |
+	| 13        | WARNING_LABEL_XREF         |
+	| 13        | MED_DISPENSE               |
+	| 13        | LONG_TEXT                  |
+	| 13        | ITEM_DEFINITION            |
+	| 13        | MED_FLEX_OBJECT_IDX        |
+	| 13        | MED_OE_DEFAULTS            |
+	| 13        | ALT_SEL_LIST               |
+	| 13        | ORDER_CATALOG_ITEM_R       |
+	| 14        | QUANTITY_ON_HAND           |
+	| 15        | ROUTE_FORM_R               |
+	| 16        | RES_SIGN_ACT_SUBTYPE       |
+	| 17        | OUTBOUND_FIELD_PROCESSING  |
+	| 18        | BILL_ITEM_MODIFIER         |
+	| 19        | PROXY_GROUP                |
+	| 20        | EXPEDITE_COPY              |
+	| 21        | ORG_TYPE_RELTN             |
+	| 22        | CODE_SET_EXTENSION         |
+	| 23        | DCP_ENTITY_RELTN           |
+	| 24        | PRINTER                    |
+	| 25        | PFT_ENCNTR                 |
+	| 26        | RAD_INIT_READ              |
+	| 27        | CODE_VALUE_ALIAS           |
+	| 27        | MATCH_TAG_PARMS            |
+	| 27        | DEVICE                     |
+	| 27        | SCH_LOCATION               |
+	| 27        | ESI_LOG                    |
+	| 27        | TRACKING_ITEM              |
+	| 27        | DCP_SHIFT_ASSIGNMENT       |
+	| 27        | PERSON_PRSNL_ACTIVITY      |
+	| 27        | SCD_STORY                  |
+	| 27        | MRU_LOOKUP_ED_DOC          |
+	| 27        | V500_EVENT_SET_CODE        |
+	| 27        | BLOB_REFERENCE             |
+	| 27        | NOMENCLATURE               |
+	| 27        | CMT_CONCEPT_EXTENSION      |
+	| 27        | NURSE_UNIT                 |
+	| 27        | LONG_BLOB                  |
+	| 27        | PM_WAIT_LIST_STATUS        |
+	| 27        | PPR_CONSENT_STATUS         |
+	| 27        | PERSON_NAME                |
+	| 27        | ORG_BARCODE_ORG            |
+	| 27        | SIGN_LINE_FORMAT_DETAIL    |
+	| 27        | PROC_PRSNL_RELTN           |
+	| 27        | CREDENTIAL                 |
+	| 27        | CODE_VALUE_SET             |
+	| 27        | CONTAINER                  |
+	| 27        | DCP_FORMS_ACTIVITY         |
+	| 27        | PCS_DEMOGRAPHIC_FIELD      |
+	| 27        | CHARGE_EVENT_ACT           |
+	| 27        | ALLERGY_COMMENT            |
+	| 27        | DCP_CARE_TEAM_PRSNL        |
+	| 27        | DCP_FORMS_ACTIVITY_COMP    |
+	| 27        | PERSON_CODE_VALUE_R        |
+	| 27        | CLINICAL_EVENT             |
+	| 27        | PSN_PPR_RELTN              |
+	| 27        | PROBLEM_PRSNL_R            |
+	| 27        | RAD_REPORT_PRSNL           |
+	| 27        | PHONE                      |
+	| 27        | MLTM_NDC_MAIN_DRUG_CODE    |
+	| 27        | BILL_ITEM                  |
+	| 27        | WORKING_VIEW_FREQ_INTERVAL |
+	| 27        | TRACKING_CHECKIN           |
+	| 27        | SCH_EVENT_ACTION           |
+	| 27        | CODE_VALUE_GROUP           |
+	| 27        | LOGICAL_DOMAIN             |
+	| 27        | PERSON_ALIAS               |
+	| 27        | CE_EVENT_PRSNL             |
+	| 27        | FILL_CYCLE_BATCH           |
+	| 27        | RAD_PROTOCOL_DEFINITION    |
+	| 27        | TRACKING_PRSNL             |
+	| 27        | DIAGNOSIS                  |
+	| 27        | RAD_TECH_CMT_DATA          |
+	| 27        | PAT_ED_DOC_ACTIVITY        |
+	| 27        | CHARGE_EVENT_ACT_PRSNL     |
+	| 27        | SCD_TERM_DATA              |
+	| 27        | HM_EXPECT_MOD              |
+	| 27        | CE_MED_RESULT              |
+	| 27        | SCH_LOCK                   |
+	| 27        | DISPENSE_CATEGORY          |
+	| 27        | RAD_RES_INFO               |
+	| 27        | SIGN_LINE_FORMAT           |
+	| 27        | ENCNTR_ALIAS               |
+	| 27        | CODE_CDF_EXT               |
+	| 27        | PM_TRANSACTION             |
+	| 27        | TRACKING_PRV_RELN          |
+	| 27        | LOCATION_GROUP             |
+	| 27        | PROBLEM_COMMENT            |
+	| 27        | ESO_TRIGGER                |
+	| 27        | PRSNL_GROUP                |
+	| 27        | PRSNL_GROUP_RELTN          |
+	| 27        | TRACKING_EVT_CMT           |
+	| 27        | TRACKING_EVENT_HISTORY     |
+	| 27        | DCP_FORMS_ACTIVITY_PRSNL   |
+	| 27        | CMT_CONCEPT                |
+	| 27        | ALLERGY                    |
+	| 27        | PAT_ED_SHORTCUT            |
+	| 27        | TRACKING_LOCATOR           |
+	| 27        | SCH_ENTRY                  |
+	| 27        | RAD_PROTOCOL_ACT           |
+	| 27        | PAT_ED_RELTN               |
+	| 27        | PREDEFINED_PREFS           |
+	| 27        | ORG_BARCODE_FORMAT         |
+	| 27        | REACTION                   |
+	| 27        | PAT_ED_FAVORITES           |
+	| 27        | TASK_ACTIVITY_ASSIGNMENT   |
+	| 27        | CHARGE_EVENT               |
+	| 27        | PPR_CONSENT_POLICY         |
+	| 27        | SCR_PATTERN                |
+	| 27        | CE_EVENT_ACTION            |
+	| 27        | TRACK_GROUP                |
+	| 27        | TRACK_REFERENCE            |
+	| 27        | PROBLEM                    |
+	| 27        | STICKY_NOTE                |
+	| 27        | V500_EVENT_SET_EXPLODE     |
+	| 27        | PRIV_LOC_RELTN             |
+	| 27        | CODE_VALUE                 |
+	| 27        | PERSON                     |
+	| 27        | PRSNL                      |
+	| 27        | HM_EXPECT_MOD_HIST         |
+	| 27        | DOSE_CALCULATOR_UOM        |
+	| 28        | TRACKING_EVENT_ORD         |
+	| 29        | DISCRETE_TASK_ASSAY        |
+	| 30        | DEVICE_XREF                |
+	| 31        | MED_COST_HX                |
+	| 31        | TEMPLATE_NONFORMULARY      |
+	| 31        | PACKAGE_TYPE               |
+	| 31        | MED_PRODUCT                |
+	| 31        | MANUFACTURER_ITEM          |
+	| 31        | ITEM_LOCATION_COST         |
+	| 31        | FILL_PRINT_ORD_HX          |
+	| 31        | MED_IDENTIFIER             |
+	| 32        | ORDER_TASK_XREF            |
+	| 33        | RAD_PROCEDURE_GROUP        |
+	| 33        | ORDER_SENTENCE             |
+	| 33        | SCH_SIMPLE_ASSOC           |
+	| 33        | PATHWAY                    |
+	| 33        | ORDER_NOTIFICATION         |
+	| 33        | RAD_RPT_LOCK               |
+	| 33        | REGIMEN_CAT_SYNONYM        |
+	| 33        | PW_CAT_SYNONYM             |
+	| 33        | ORDER_COMMENT              |
+	| 33        | ORDER_PRODUCT_DOSE         |
+	| 33        | ECO_QUEUE                  |
+	| 33        | RAD_REPORT                 |
+	| 33        | RAD_FOL_UP_FIELD           |
+	| 33        | RAD_INT_CASE_R             |
+	| 33        | TRACKABLE_OBJECT           |
+	| 33        | ORDER_RADIOLOGY            |
+	| 33        | RAD_PRIOR_PREFS            |
+	| 33        | CODE_VALUE_EVENT_R         |
+	| 33        | MAMMO_STUDY                |
+	| 33        | PW_CAT_FLEX                |
+	| 33        | FILM_USAGE                 |
+	| 33        | FILM_EXAM                  |
+	| 33        | MEDIA_EXAM                 |
+	| 33        | ORDER_THERAP_SBSTTN        |
+	| 33        | ORDER_IV_INFO              |
+	| 33        | CS_COMPONENT               |
+	| 33        | EXAM_DATA                  |
+	| 33        | BILL_ONLY_PROC_RELTN       |
+	| 33        | SCH_EVENT_PATIENT          |
+	| 33        | IMAGE_CLASS                |
+	| 33        | RAD_INT_CASE               |
+	| 33        | ORDER_CATALOG              |
+	| 33        | SCH_APPT_ORD               |
+	| 33        | SIGN_LINE_DTA_R            |
+	| 33        | REGIMEN_CATALOG            |
+	| 33        | IM_STUDY_PARENT_R          |
+	| 33        | ORDER_INGREDIENT           |
+	| 33        | ORDER_DISPENSE             |
+	| 33        | ICLASS_PERSON_RELTN        |
+	| 33        | ACT_PW_COMP                |
+	| 33        | PATHWAY_CATALOG            |
+	| 33        | PROCEDURE_SPECIMEN_TYPE    |
+	| 33        | ORDER_INGREDIENT_DOSE      |
+	| 33        | RAD_FILM_ADJUST            |
+	| 33        | RAD_PROCEDURE_ASSOC        |
+	| 33        | PHARMACY_NOTES             |
+	| 33        | SCH_APPT_OPTION            |
+	| 33        | RAD_FOLLOW_UP_RECALL       |
+	| 33        | ORDER_CATALOG_SYNONYM      |
+	| 33        | TASK_DISCRETE_R            |
+	| 33        | IM_STUDY                   |
+	| 33        | MAMMO_FOLLOW_UP            |
+	| 33        | RAD_EXAM                   |
+	| 33        | RENEW_NOTIFICATION_PERIOD  |
+	------------------------------------------
 	
-1. Login to OCI
-2. Navigate to Storage in Menu
-3. Select Object Storage & Archive Storage 
-4. Select Buckets
 
-	![Image alt text](./images/sample1.png)
+## Task 4 : Analysis of nelwy formed clusters
 
-2. Select the compartment and Click on Create Bucket
-	
-	![Image alt text](./images/create-bucket-click.png)
-	
-3. Enter Bucket Name and Click Create
-	
-	![Image alt text](./images/enter-bucket-name.png)	
-	
+- There are 63 Nodes in this below Cluster : 
+- Main Table for foraming a cluster is PRSNL where major number of tables are connected with this table. 
 
-## Task 2: Upload the CSV files of NODES and EDGES in OCI Buckets
+- All the tables related to Personal and tracking of those personal details has formed the formed one cluster. 
 
-1. Select the bucket and click on upload
-
-  ![Image alt text](./images/click-on-upload.png)
-  
-2. Drag and Drop the Nodes and Edges files and click on Upload
-
-  ![Image alt text](./images/drag-and-drop-upload.png)
-
-
-## Task 3: Load the Graph Configuration
-
-1. Login to Oracle Labs Data Studio.
-   
-   ![Image alt text](./images/oracle-labs-data-studio-login.png)
-2. 
-   Create a file with below content and import it in graph configuration
-
+- The Person will have the Problems and He consults the Doctor. Doctor will diagnoise the Patient. And the tracking of the patient is carried out
+If you see below the Below tables are related to Person who is a patient. Here the Person, his Diagnosis, Tracking the activity of the Person.
 	~~~
-	{
-    "format": "csv",
-    "vertex_props": [
-        {
-            "name": "TABLE_NAME",
-            "type": "string"
-        }
-    ],
-    "edge_props": [
-        {
-            "name": "TOTAL_AFFINITY",
-            "type": "double"
-        }
-    ],
-    "vertex_id_strategy": "keys_as_ids",
-    "edge_id_strategy": "keys_as_ids",
-    "vertex_id_type": "string",
-    "partition_while_loading": "no",
-    "loading": {
-        "create_edge_id_index": true,
-        "create_edge_id_mapping": true
-    },
-	
-    "vertex_uris": [
-        "https://objectstorage.us-ashburn-1.oraclecloud.com/n/maacloud/b/bucket-medical-recs-csv/o/NODES_259_NEW.csv"
-    ],
-    "edge_uris": [
-        "https://objectstorage.us-ashburn-1.oraclecloud.com/n/maacloud/b/bucket-medical-recs-csv/o/EDGES_259_NEW.csv"
-    ],
-    "vertex_id_column": "TABLE_NAME",
-    "edge_id_column": "TABLE_MAP_ID",
-    "edge_source_column": "TABLE1",
-    "edge_destination_column": "TABLE2",
-    "header": true
-	}
-	~~~
-	Replace values for "vertex_uris" and "edge_uris" with newly uploaded csv files.
-
-	Save this as MEDICAL_REC_GRAPH.json file.
-
-	Upload this json file in graph configurations.
-
-	![Image alt text](./images/data-studio-graph-config.png)
-	
-## Task 3: Detect the communities using Infomap
-
-1. create the new Notebook
-   ![Image alt text](./images/data-studio-create-notebook.png)
-
-	Create new paragraph and add below code and run the paragraph
-	~~~
-	%pgx-java
-	PgxGraph graph = session.readGraphWithProperties(MEDICAL_REC_GRAPH, "MEDICAL_REC_GRAPH");
-	~~~
-	Output: Lists the number of Nodes and Edges in the Graph. Here its 259 Nodes and 972 Edges
-	~~~
-	PgxGraph[name=MEDICAL_REC_GRAPH,N=259,E=972,created=1663935475498]
-	~~~
-2. Visualize the input graph 
-
-	~~~
-	%pgql
-	select * from match (s)-[t]->(d) on MEDICAL_REC_GRAPH
-	~~~
-	Output : 
-	![Image alt text](./images/data-studio-smaller-input-graph.png)
-	
-3. Run the Infomap to find the communities within the small graph
-	~~~
-	%pgx-java
-	EdgeProperty<Double> weight = graph.getEdgeProperty("TOTAL_AFFINITY");
-	VertexProperty<Integer, Double> rank = analyst.weightedPagerank(graph, 1e-16, 0.85, 1000, true, weight);
-	VertexProperty<Integer, Long> module = graph.createVertexProperty(PropertyType.LONG);
-
-	Partition<Integer> promise = analyst.communitiesInfomap(graph, rank, weight, 0.15, 0.0001, 100, module);
-	VertexCollection<Integer> first_component = promise.getPartitionByIndex(0)
-
-	out.println("Res : " + first_component)
-	out.println("Total number of identified Clusters  : " + promise.size())
-	for (VertexCollection<Integer> partition : promise){
-		out.println("===================================");
-		out.println("There are "+ partition.size()+" Nodes in this below Cluster");
-		for (PgxVertex<Integer> vertexInCommunity : partition){
-			out.println("Node : " + vertexInCommunity.getId());
-		}
-	}
-	~~~
-	Output :
-	~~~
-	Total number of identified Clusters  : 32
-	===================================
-	There are 1 Nodes in this below Cluster : 
-	Node : CODE_SET_EXTENSION
-	===================================
-	There are 1 Nodes in this below Cluster : 
-	Node : BILL_ITEM_MODIFIER
-	===================================
-	There are 1 Nodes in this below Cluster : 
-	Node : DEVICE_XREF
-	===================================
-	There are 1 Nodes in this below Cluster : 
-	Node : DISCRETE_TASK_ASSAY
-	===================================
-	There are 63 Nodes in this below Cluster : 
-	Node : ALLERGY
-	Node : ALLERGY_COMMENT
-	Node : CE_EVENT_ACTION
-	Node : CE_EVENT_PRSNL
-	Node : CE_MED_RESULT
-	Node : CHARGE_EVENT
-	Node : CHARGE_EVENT_ACT
-	Node : CHARGE_EVENT_ACT_PRSNL
-	Node : CLINICAL_EVENT
-	Node : CONTAINER
-	Node : DCP_CARE_TEAM_PRSNL
-	Node : DCP_FORMS_ACTIVITY
-	Node : DCP_FORMS_ACTIVITY_PRSNL
-	Node : DCP_SHIFT_ASSIGNMENT
-	Node : DIAGNOSIS
-	Node : ESI_LOG
-	Node : HM_EXPECT_MOD
-	Node : HM_EXPECT_MOD_HIST
-	Node : LOGICAL_DOMAIN
-	Node : LONG_BLOB
-	Node : MRU_LOOKUP_ED_DOC
-	Node : NOMENCLATURE
-	Node : PAT_ED_DOC_ACTIVITY
-	Node : PAT_ED_FAVORITES
-	Node : PAT_ED_RELTN
-	Node : PAT_ED_SHORTCUT
-	Node : PERSON
-	Node : PERSON_COMBINE_DET
-	Node : PERSON_NAME
-	Node : PM_TRANSACTION
-	Node : PM_WAIT_LIST_STATUS
-	Node : PPR_CONSENT_POLICY
-	Node : PPR_CONSENT_STATUS
-	Node : PRIV_LOC_RELTN
-	Node : PROBLEM
-	Node : PROBLEM_COMMENT
-	Node : PROBLEM_PRSNL_R
-	Node : PROC_PRSNL_RELTN
-	Node : PRSNL
-	Node : RAD_PROTOCOL_ACT
-	Node : RAD_PROTOCOL_DEFINITION
-	Node : RAD_REPORT_PRSNL
-	Node : RAD_RES_INFO
-	Node : RAD_TECH_CMT_DATA
-	Node : REACTION
-	Node : SCD_STORY
-	Node : SCD_TERM_DATA
-	Node : SCH_ENTRY
-	Node : SCH_EVENT_ACTION
-	Node : SCH_LOCATION
-	Node : SCH_LOCK
-	Node : SCR_PATTERN
-	Node : STICKY_NOTE
-	Node : TASK_ACTIVITY_ASSIGNMENT
-	Node : TRACKING_CHECKIN
-	Node : TRACKING_EVENT_HISTORY
-	Node : TRACKING_EVT_CMT
-	Node : TRACKING_ITEM
-	Node : TRACKING_LOCATOR
-	Node : TRACKING_PRSNL
-	Node : TRACKING_PRV_RELN
-	Node : TRACK_REFERENCE
-	Node : V500_EVENT_SET_EXPLODE
-	===================================
-	There are 1 Nodes in this below Cluster : 
-	Node : DRC_PREMISE
-	===================================
-	There are 1 Nodes in this below Cluster : 
-	Node : EXPEDITE_COPY
-	===================================
-	There are 1 Nodes in this below Cluster : 
-	Node : PERSON_PRSNL_ACTIVITY
-	===================================
-	There are 1 Nodes in this below Cluster : 
-	Node : IMAGE_CLASS_TYPE
-	===================================
-	There are 43 Nodes in this below Cluster : 
-	Node : BILL_ITEM
-	Node : BLOB_REFERENCE
-	Node : CMT_CONCEPT
-	Node : CMT_CONCEPT_EXTENSION
-	Node : CODE_CDF_EXT
-	Node : CODE_VALUE
-	Node : CODE_VALUE_ALIAS
-	Node : CODE_VALUE_EXTENSION
-	Node : CODE_VALUE_GROUP
-	Node : CODE_VALUE_SET
-	Node : CREDENTIAL
-	Node : DCP_FORMS_ACTIVITY_COMP
-	Node : DEPT_ORD_STAT_SECURITY
-	Node : DEVICE
-	Node : DISPENSE_CATEGORY
-	Node : DOSE_CALCULATOR_UOM
-	Node : ENCNTR_INFO
-	Node : ESO_TRIGGER
-	Node : FILL_CYCLE_BATCH
-	Node : LOCATION_GROUP
-	Node : MATCH_TAG_PARMS
-	Node : MLTM_NDC_MAIN_DRUG_CODE
-	Node : NURSE_UNIT
-	Node : ORDER_TASK
-	Node : ORD_RQSTN_ORD_R
-	Node : ORG_BARCODE_FORMAT
-	Node : ORG_BARCODE_ORG
-	Node : PCS_DEMOGRAPHIC_FIELD
-	Node : PERSON_ALIAS
-	Node : PERSON_CODE_VALUE_R
-	Node : PERSON_INFO
-	Node : PERSON_PERSON_RELTN
-	Node : PE_STATUS_REASON
-	Node : PREDEFINED_PREFS
-	Node : PRSNL_ALIAS
-	Node : PRSNL_GROUP
-	Node : PRSNL_GROUP_RELTN
-	Node : PSN_PPR_RELTN
-	Node : SIGN_LINE_FORMAT
-	Node : SIGN_LINE_FORMAT_DETAIL
-	Node : TRACK_GROUP
-	Node : V500_EVENT_SET_CODE
-	Node : WORKING_VIEW_FREQ_INTERVAL
-	===================================
-	There are 15 Nodes in this below Cluster : 
-	Node : CLINICAL_SERVICE_RELTN
-	Node : ENCNTR_PRSNL_RELTN
-	Node : ENCOUNTER
-	Node : LOCATION
-	Node : ORGANIZATION
-	Node : ORG_ALIAS_POOL_RELTN
-	Node : PCT_CARE_TEAM
-	Node : PERSON_PRSNL_RELTN
-	Node : PHONE
-	Node : PRSNL_ORG_RELTN
-	Node : PRSNL_RELTN
-	Node : PRSNL_RELTN_ACTIVITY
-	Node : SCH_APPT
-	Node : SCH_EVENT
-	Node : SCH_EVENT_ALIAS
-	===================================
-	There are 1 Nodes in this below Cluster : 
-	Node : OCS_FACILITY_R
-	===================================
-	There are 1 Nodes in this below Cluster : 
-	Node : ORDER_TASK_XREF
-	===================================
-	There are 1 Nodes in this below Cluster : 
-	Node : ORG_ORG_RELTN
-	===================================
-	There are 1 Nodes in this below Cluster : 
-	Node : ORG_TYPE_RELTN
-	===================================
-	There are 1 Nodes in this below Cluster : 
-	Node : OUTBOUND_FIELD_PROCESSING
-	===================================
-	There are 1 Nodes in this below Cluster : 
-	Node : PFT_ENCNTR
-	===================================
-	There are 23 Nodes in this below Cluster : 
-	Node : ALT_SEL_CAT
-	Node : ALT_SEL_LIST
-	Node : FILL_PRINT_ORD_HX
-	Node : ITEM_DEFINITION
-	Node : ITEM_LOCATION_COST
-	Node : LONG_TEXT
-	Node : MANUFACTURER_ITEM
-	Node : MEDICATION_DEFINITION
-	Node : MED_COST_HX
-	Node : MED_DEF_FLEX
-	Node : MED_DISPENSE
-	Node : MED_FLEX_OBJECT_IDX
-	Node : MED_IDENTIFIER
-	Node : MED_INGRED_SET
-	Node : MED_OE_DEFAULTS
-	Node : MED_PACKAGE_TYPE
-	Node : MED_PRODUCT
-	Node : ORDER_CATALOG_ITEM_R
-	Node : PACKAGE_TYPE
-	Node : QUANTITY_ON_HAND
-	Node : RX_CURVE
-	Node : WARNING_LABEL
-	Node : WARNING_LABEL_XREF
-	===================================
-	There are 1 Nodes in this below Cluster : 
-	Node : PRINTER
-	===================================
-	There are 1 Nodes in this below Cluster : 
-	Node : PROC_CLASSIFICATION
-	===================================
-	There are 1 Nodes in this below Cluster : 
-	Node : PROXY_GROUP
-	===================================
-	There are 1 Nodes in this below Cluster : 
-	Node : SHARED_VALUE_GTTD
-	===================================
-	There are 1 Nodes in this below Cluster : 
-	Node : ROUTE_FORM_R
-	===================================
-	There are 1 Nodes in this below Cluster : 
-	Node : RAD_INIT_READ
-	===================================
-	There are 1 Nodes in this below Cluster : 
-	Node : PRIVILEGE
-	===================================
-	There are 1 Nodes in this below Cluster : 
-	Node : RAD_REPORT_DETAIL
-	===================================
-	There are 1 Nodes in this below Cluster : 
-	Node : RES_SIGN_ACT_SUBTYPE
-	===================================
-	There are 88 Nodes in this below Cluster : 
-	Node : ACCESSION
-	Node : ACCESSION_ORDER_R
-	Node : ACTIVITY_DATA_RELTN
-	Node : ACT_PW_COMP
-	Node : BILL_ONLY_PROC_RELTN
-	Node : CODE_VALUE_EVENT_R
-	Node : COLLECTION_PRIORITY
-	Node : CS_COMPONENT
-	Node : ECO_QUEUE
-	Node : ENCNTR_ALIAS
-	Node : ENCNTR_LOC_HIST
-	Node : EXAM_DATA
-	Node : FILM_EXAM
-	Node : FILM_USAGE
-	Node : ICLASS_PERSON_RELTN
-	Node : IMAGE_CLASS
-	Node : IM_STUDY
-	Node : IM_STUDY_PARENT_R
-	Node : MAMMO_FOLLOW_UP
-	Node : MAMMO_STUDY
-	Node : MEDIA_EXAM
-	Node : NETTING
-	Node : OE_FORMAT_FIELDS
-	Node : ORDERS
-	Node : ORDER_ACTION
-	Node : ORDER_CATALOG
-	Node : ORDER_CATALOG_SYNONYM
-	Node : ORDER_COMMENT
-	Node : ORDER_CONTAINER_R
-	Node : ORDER_DETAIL
-	Node : ORDER_DISPENSE
-	Node : ORDER_ENTRY_FIELDS
-	Node : ORDER_INGREDIENT
-	Node : ORDER_INGREDIENT_DOSE
-	Node : ORDER_IV_INFO
-	Node : ORDER_LABORATORY
-	Node : ORDER_NOTIFICATION
-	Node : ORDER_PRODUCT
-	Node : ORDER_PRODUCT_DOSE
-	Node : ORDER_RADIOLOGY
-	Node : ORDER_REVIEW
-	Node : ORDER_SENTENCE
-	Node : ORDER_SUPPLY_REVIEW
-	Node : ORDER_TASK_RESPONSE
-	Node : ORDER_THERAP_SBSTTN
-	Node : OUTPUT_DEST
-	Node : PATHWAY
-	Node : PATHWAY_CATALOG
-	Node : PENDING_COLLECTION
-	Node : PERSON_COMBINE
-	Node : PHARMACY_NOTES
-	Node : PRICE_SCHED
-	Node : PROCEDURE_SPECIMEN_TYPE
-	Node : PW_CAT_FLEX
-	Node : PW_CAT_SYNONYM
-	Node : RAD_EXAM
-	Node : RAD_FILM_ADJUST
-	Node : RAD_FOLLOW_UP_CONTROL
-	Node : RAD_FOLLOW_UP_RECALL
-	Node : RAD_FOL_UP_FIELD
-	Node : RAD_INT_CASE
-	Node : RAD_INT_CASE_R
-	Node : RAD_PRIOR_PREFS
-	Node : RAD_PROCEDURE_ASSOC
-	Node : RAD_PROCEDURE_GROUP
-	Node : RAD_REPORT
-	Node : RAD_RPT_LOCK
-	Node : REGIMEN_CATALOG
-	Node : REGIMEN_CAT_SYNONYM
-	Node : RENEW_NOTIFICATION_PERIOD
-	Node : SCH_APPT_OPTION
-	Node : SCH_APPT_ORD
-	Node : SCH_EVENT_ATTACH
-	Node : SCH_EVENT_PATIENT
-	Node : SCH_SIMPLE_ASSOC
-	Node : SERVICE_DIRECTORY
-	Node : SHARED_LIST_GTTD
-	Node : SIGN_LINE_DTA_R
-	Node : TASK_ACTIVITY
-	Node : TASK_DISCRETE_R
-	Node : TASK_RELTN
-	Node : TEMPLATE_NONFORMULARY
-	Node : TRACKABLE_OBJECT
-	Node : TRACKING_EVENT
-	Node : TRACK_EVENT
-	Node : UCMR_CASE_TYPE
-	Node : UCM_CASE
-	Node : UCM_CASE_STEP
-	===================================
-	There are 1 Nodes in this below Cluster : 
-	Node : SYNONYM_ITEM_R
-	===================================
-	There are 1 Nodes in this below Cluster : 
-	Node : TRACKING_EVENT_ORD
-	===================================
-	There are 1 Nodes in this below Cluster : 
-	Node : TRACKING_PRSNL_REF
-	===================================
-	There are 1 Nodes in this below Cluster : 
-	Node : DCP_ENTITY_RELTN
+	ALLERGY
+	ALLERGY_COMMENT
+	CE_EVENT_ACTION
+	CE_EVENT_PRSNL
+	CE_MED_RESULT
+	CHARGE_EVENT
+	CHARGE_EVENT_ACT
+	CHARGE_EVENT_ACT_PRSNL
+	CLINICAL_EVENT
+	CONTAINER
+	DCP_CARE_TEAM_PRSNL
+	DCP_FORMS_ACTIVITY
+	DCP_FORMS_ACTIVITY_PRSNL
+	DCP_SHIFT_ASSIGNMENT
+	DIAGNOSIS
+	ESI_LOG
+	HM_EXPECT_MOD
+	HM_EXPECT_MOD_HIST
+	LOGICAL_DOMAIN
+	LONG_BLOB
+	MRU_LOOKUP_ED_DOC
+	NOMENCLATURE
+	PAT_ED_DOC_ACTIVITY
+	PAT_ED_FAVORITES
+	PAT_ED_RELTN
+	PAT_ED_SHORTCUT
+	PERSON
+	PERSON_COMBINE_DET
+	PERSON_NAME
+	PM_TRANSACTION
+	PM_WAIT_LIST_STATUS
+	PPR_CONSENT_POLICY
+	PPR_CONSENT_STATUS
+	PRIV_LOC_RELTN
+	PROBLEM
+	PROBLEM_COMMENT
+	PROBLEM_PRSNL_R
+	PROC_PRSNL_RELTN
+	PRSNL
+	RAD_PROTOCOL_ACT
+	RAD_PROTOCOL_DEFINITION
+	RAD_REPORT_PRSNL
+	RAD_RES_INFO
+	RAD_TECH_CMT_DATA
+	REACTION
+	SCD_STORY
+	SCD_TERM_DATA
+	SCH_ENTRY
+	SCH_EVENT_ACTION
+	SCH_LOCATION
+	SCH_LOCK
+	SCR_PATTERN
+	STICKY_NOTE
+	TASK_ACTIVITY_ASSIGNMENT
+	TRACKING_CHECKIN
+	TRACKING_EVENT_HISTORY
+	TRACKING_EVT_CMT
+	TRACKING_ITEM
+	TRACKING_LOCATOR
+	TRACKING_PRSNL
+	TRACKING_PRV_RELN
+	TRACK_REFERENCE
+	V500_EVENT_SET_EXPLODE
 	~~~
 
 ## Learn More
@@ -476,5 +388,4 @@ This lab assumes you have:
 ## Acknowledgements
 * **Author** - Praveen Hiremath, Developer Advocate
 * **Contributors** -  Praveen Hiremath, Developer Advocate
-* **Last Updated By/Date** - Praveen Hiremath, Developer Advocate, September 2022 
-
+* **Last Updated By/Date** - Praveen Hiremath, Developer Advocate, September 2022

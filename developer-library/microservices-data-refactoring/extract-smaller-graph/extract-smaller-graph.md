@@ -20,13 +20,6 @@ This lab assumes you have:
 * This lab requires an Autonomous Database - Shared Infrastructure or Autonomous Transaction Processing - Shared Infrastructure account.
 
 ## Task 1: Run the Infomap on the main graph in the Data Studio
-#TODO:
-
-1. Open the service detail page for your Autonomous Database instance in the OCI console.  
-
-   Then click the **Database Actions** link to open it. 
-   
-   ![ALT text is not available for this image](images/create-user/open-database-actions.png " ")
 
 ## Task 2: Choose the clusters from the result of Infomap from the main graph
 
