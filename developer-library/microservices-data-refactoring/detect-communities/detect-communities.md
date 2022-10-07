@@ -9,7 +9,7 @@ Estimated Lab Time: 15 minutes
 ### Objectives
 
 In this lab, you will:
-* Create a graph in Data Studio
+* Create a graph in Graph Studio.
 * Detect the communities using the Infomap.
 
 ### Prerequisites
