@@ -24,14 +24,37 @@ This lab assumes you have:
 	~~~ 
 	git clone https://github.com/oracle/DRACommunityDetection.git 
 	~~~
-2. Compile the maven project
+
+2. Update the db-config.properties file.
+   
+ 	Update the value for the below properties.
+	~~~
+  	tenant 	 - tenant OCID
+  	database - Name of the Database
+	username - Username to login to database
+	password - Password to login to database
+	endpoint - Endpoint for connecting to Autonomous Database instance
+	~~~~
+1. Update the graph-config.properties file.
+
+	Update the value for the below properties.
+	~~~
+  	graph_name - Name of the graph created in Graph Studio.
+  	vertex_property_column
+	edge_property_source_column
+	edge_property_destination_column
+	edge_property_weight_column
+	~~~~
+
+## Task 2: Compile and Run the Community Detection.
+1. Compile the maven project
 	~~~
 	mvn compile
 	~~~
 
-3. Execute the project to see the identified clusters using the Infomap Algorithm
+2. Execute the project to see the identified clusters using the Infomap Algorithm
 	~~~
-	mvn exec:java -Dexec.mainClass=com.oracle.ms.app.InfomapGraphClient
+	mvn exec:java -Dexec.mainClass=com.oracle.ms.app.InfomapGraphClient 'MaxNumberOfIterations'
 	~~~
 	Where 
    - com.oracle.ms.app.InfomapGraphClient - Main class which loads the graph and runs the Infomap to identify the Clusters.
