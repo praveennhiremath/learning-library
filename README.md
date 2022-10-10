@@ -19,7 +19,7 @@ Visit [LiveLabs](http://bit.ly/golivelabs) now to get started.  Workshops are ad
 - [Database 21c on DB Systems](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=737)
 - [Database 19c JSON](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?p180_id=638)
 - [Database 19c New Features for Developers](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?p180_id=636)
-- [Create a Docker registry in OCI](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?p180_id=590) 
+- [Create a Docker registry in OCI](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?p180_id=590)
 
 ## **Autonomous Database** Featured Workshops
 - [Departmental Data Warehouse - HR Analytics](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?p180_id=678)
