@@ -1,6 +1,0 @@
-[Description of the illustration create_workspace.png.]
-
-This images shows the Create Project dialog. It shows Project A in the name field, and has USER1 Workspace/USER1 selected by default in the Workspace field.   
-
-
-Copyright © 2017, 2021 Oracle and/or its affiliates. All rights reserved.

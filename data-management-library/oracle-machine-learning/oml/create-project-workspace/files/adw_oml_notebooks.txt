@@ -1,1 +1,0 @@
-This screenshot shows the Oracle Machine Learning Notebooks in Oracle Autonomous Data Warehouse - Development page.
