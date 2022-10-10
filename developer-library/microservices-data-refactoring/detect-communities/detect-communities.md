@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this lab, using the graphs which are created in the previous labs, we applied the community detection algorithm which identifies the communities within the graphs. The community detection algorithm takes the input graphs and identities strong connectivity within graphs and forms multiple smaller communities. Infomap is used for community detection in this lab.
+In this lab, using the graphs which were created in the previous labs, we applied the community detection algorithm which identifies the communities within the graphs. The community detection algorithm takes the input graphs and identities strong connectivity within graphs and forms multiple smaller communities. Infomap is used for community detection in this lab.
 
 Estimated Lab Time: 15 minutes
 
@@ -359,9 +359,9 @@ The table names with the same community Ids formed the clusters below.
 * All the tables related to Personal and tracking of those personal details has formed the formed one cluster.
 
 * The Person will have the Problems and He consults the Doctor. Doctor will diagnoise the Patient. And the tracking of the patient is carried out
-If you see below the Below tables are related to Person who is a patient. Here the Person, his Diagnosis, Tracking the activity of the Person.
- ~~~
+If you see below the Below tables are related to Person who is a patient. Here the Person, his Diagnosis, Tracking the activity of the Person has formed one community. Similarly there are other communities formed as well.
 
+ ~~~
  ALLERGY
  ALLERGY_COMMENT
  CE_EVENT_ACTION
@@ -427,6 +427,26 @@ If you see below the Below tables are related to Person who is a patient. Here t
  V500_EVENT_SET_EXPLODE
 
  ~~~
+Below are the 16 tables which formed a cluster on Medication Deatils and also medical dispense.
+~~~
+ ORDER_PRODUCT              
+ WARNING_LABEL              
+ MED_INGRED_SET             
+ ALT_SEL_CAT                
+ RX_CURVE                   
+ MED_PACKAGE_TYPE           
+ MEDICATION_DEFINITION      
+ MED_DEF_FLEX               
+ WARNING_LABEL_XREF         
+ MED_DISPENSE               
+ LONG_TEXT                  
+ ITEM_DEFINITION            
+ MED_FLEX_OBJECT_IDX        
+ MED_OE_DEFAULTS            
+ ALT_SEL_LIST               
+ ORDER_CATALOG_ITEM_R       
+~~~
+There are single node clusters as well. If we analyse and can say that these nodes should be part of any cluster, we can do move a node to target cluster. Its explained in the next lab.
 
 ## Learn More
 
