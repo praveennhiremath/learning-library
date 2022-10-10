@@ -19,7 +19,7 @@ This lab assumes you have:
 
 * All previous labs were completed successfully.
 
-## Task 1: Create the Bucket in OCI Compartment
+## Task 1: Create the folder and clone the project from github. 
 1. Create a folder named 'DRA' and Navigate to DRA.
    ~~~
    mkdir DRA
