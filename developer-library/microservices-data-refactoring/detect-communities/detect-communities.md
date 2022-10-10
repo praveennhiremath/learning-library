@@ -69,13 +69,13 @@ This lab assumes you have:
 2. Execute the project to see the identified clusters using the Infomap Algorithm
 
 	~~~
-	mvn exec:java -Dexec.mainClass=com.oracle.ms.app.InfomapGraphClient 'MaxNumberOfIterations' 
+	mvn exec:java -Dexec.mainClass=com.oracle.ms.app.InfomapGraphClient -Dexec.args="MaxNumberOfIterations"
 	~~~
 
  	Where
 
    * com.oracle.ms.app.InfomapGraphClient - Main class which loads the graph and runs the Infomap to identify the Clusters.
-   * MaxNumberOfIterations - Maximum number of Iterations, the stopping criteria for Infomap algorithm
+   * MaxNumberOfIterations - Maximum number of Iterations, the stopping criteria for Infomap algorithm. A positive integer.
 
 *Output*
 
