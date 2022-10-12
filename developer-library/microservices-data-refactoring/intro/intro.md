@@ -37,26 +37,21 @@ Decentralized data archictures can introduce exponential costs due to lifecycle 
 
 *Monolithic applications* typically have a large, shared database, which makes it easy for different parts of the application to access whatever data they need, but this tends to create increasingly complex interdependencies, makes it difficult to refactor the application or the data model and obscures data (domain) ownership.
 
-Data Refactoring Advisor helps identify bounded contexts based on how the data are used.  It collects information about actual usage patterns (e.g. how often tables are joined) in SQL Tuning Sets, calculates the affinity of each pair of tables based on usage, uses the Louvain algorithm (in Graph Studio) to identify communities/clusters and provides a way to adjust constraints and ulimately to convert the monolithic schema into separate bounded contexts.  The diagram below illustrates this process:
+Data Refactoring Advisor helps identify bounded contexts based on how the data are used.  It collects information about actual usage patterns (e.g. how often tables are joined) in SQL Tuning Sets, calculates the affinity of each pair of tables based on usage, uses the Infomap algorithm (in Graph Studio) to identify communities/clusters and provides a way to adjust constraints and ulimately to convert the monolithic schema into separate bounded contexts.  The diagram below illustrates this process:
 
 ![process](./images/dra-process.png " ")
 
 **Introduction to community detection**
 
-An important part of this process is the community detection.  Community detection is a process for finding which things belong together.  In our case, the 'things' we are interested in are tables in the database.
+An important part of this process is the community detection.  Community detection is a process for finding which things belong together.  In our case, the 'things' we are interested in are tables in the database. We will use the frequency of joins as the main criteria for calculating the 'affinity' between tables.
 
-The sample schema that we will use in this lab has one hundred tables, they are named `DRA-1` through to `DRA-100`.  We will simulate some application workload that uses these tables, and then we will be able to determine which tables are related to each other.  In this lab, we will use the frequency of joins as the main criteria for calculating the 'affinity' between tables.
-
-Once we have that data, we will use the Louvain algorithm to detect communities.  This is a very common and widely used algorithm for detecting communities.  It was developed by Blondel et al at the University of Louvain.  It works by trying to maximize the 'modularity' which is a measure of the density of the links inside communities compared to the links between communities.  In our case, this means that tables that are frequently joined to each other are likely to end up in the same community, and tables that are seldom joined will be likely to end up in different communities.  The image below shows two such communities and the tables that belong in them.  The nodes/vertices represent tables and the arrows/edges represent the affinity between the tables.
+Once we have that data, we will use the Infomap algorithm to detect communities.  This is a very common and widely used algorithm for detecting communities. It works by trying to maximize the 'modularity' which is a measure of the density of the links inside communities compared to the links between communities. In our case, this means that tables that are frequently joined to each other are likely to end up in the same community, and tables that are seldom joined will be likely to end up in different communities.  The image below shows two such communities and the tables that belong in them.  The nodes/vertices represent tables and the arrows/edges represent the affinity between the tables.
  ![intro](./images/communities.png " ")
-
-If you would like to know more detail about the Louvain algorithm, how it works, and where else it has been used, please see the "Want to Learn More?" section below for links to additional information.
 
 You may now **proceed to the next lab.**
 
 ## Want to Learn More?
 
-- [Louvain Algorithm](https://www.youtube.com/watch?v=0zuiLBOIcsw)
 - [Oracle Graph Database](https://www.oracle.com/database/graph/)
 - [PL/SQL Packages and Types Reference](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/)
 - [https://developer.oracle.com/](https://developer.oracle.com/)
@@ -64,5 +59,5 @@ You may now **proceed to the next lab.**
 ## Acknowledgements
 
 - **Author** - Mark Nelson, Developer Evangelist
-- **Contributors** - Mayank Tayal, Developer Advocate 
-- **Last Updated By/Date** - Mark Nelson, April 2022
+- **Contributors** - Mark Nelson, Developer Evangelist 
+- **Last Updated By/Date** - Mark Nelson, October 2022
