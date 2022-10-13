@@ -8,8 +8,6 @@ Estimated Lab Time: 10 minutes
 
 ### About SQL Tuning Sets
 
-TODO explain what they are etc.
-
 ### Objectives
 
 In this lab, you will:
@@ -63,10 +61,11 @@ When you ran the `setup.sh` script in the previous lab, it created a database us
         for i in 1..100 loop
             execute immediate
                 'create table dra_' || i || '
-                ( col1 varchar2(256) )
+                ( col' || i || ' varchar2(256) )
                 ';
         end loop;
     end;
+	
     /</copy>
     ```
 
@@ -106,13 +105,9 @@ Now we will create some simulated application workload.  In a real-world scenari
 
     The file `simulate-workload.sql` contains about one hundred SQL commands.  Copy the contents of this file into you SQL Worksheet and click on the **Run script** button.  If you do not recall where the button is, please refer back to Task 1, Step 7 for a reminder.
 
-    TODO put image here
-
 ## Task 5: Load the SQL Tuning Set
 
 **Note**: The commands in this task **must** be run as the `ADMIN` user.  To open an SQL Worksheet for the `ADMIN` user, repeat steps 1 and 2 in Task 1.
-
-TODO write me.  
 
 1. Being careful to ensure you run this command as the `ADMIN` user, not `TKDRADATA`, load the workload data into the SQL Tuning Set using this command:
 
@@ -153,11 +148,6 @@ Once this has been completed you are ready to **proceed to the next lab.**
 
 
 ## Learn More
-
-*(optional - include links to docs, white papers, blogs, etc)*
-
-* [URL text 1](http://docs.oracle.com)
-* [URL text 2](http://docs.oracle.com)
 
 ## Acknowledgements
 - **Author** - Mark Nelson, Developer Evangelist

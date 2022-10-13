@@ -286,6 +286,7 @@ In this task, we will create a set of metadata tables that we will use to store 
 
 Once this has been completed you are ready to **proceed to the next lab.**
 
+## Learn More
 
 ## Acknowledgements
 - **Author** - Mark Nelson, Developer Evangelist
