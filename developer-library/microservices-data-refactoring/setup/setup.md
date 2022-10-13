@@ -108,5 +108,5 @@ Once the setup has been completed you are ready to **proceed to the next lab.**
 ## Acknowledgements
 
 - **Author** - Mark Nelson, Developer Evangelist
-- **Contributors** - Mark Nelson, Developer Evangelist
-- **Last Updated By/Date** - Mark Nelson, Developer Evangelist, October 2022
+- **Contributors** - Mark Nelson, Praveen Hiremath
+- **Last Updated By/Date** - Praveen Hiremath, Developer Advocate, October 2022

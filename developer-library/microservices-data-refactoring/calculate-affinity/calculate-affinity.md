@@ -286,9 +286,60 @@ In this task, we will create a set of metadata tables that we will use to store 
 
 Once this has been completed you are ready to **proceed to the next lab.**
 
+## Task 3: Alternative to running STS and determine affinities
+
+Skip Task 1, Task 2 and Run the Task 3 instructions if you don't have the STS/don't want to simulate data. We are going to load the data w.r.t medical field. The data exists in 2 CSV files. 
+	1. NODES.csv - Where we have table names.
+	2. EDGES.csv - Where we have source(TABLE1) and destination(TABLE2) columns with the edge weights(TOTAL_AFFINITY) column.
+
+1. Go to the compartment which we have created in the during the setup. In our case the compartment name is "dra". click on the "dradb" which also created during the setup.
+	
+	![Image alt text](images/compartment-and-adb.png)
+	
+2. Click on the Database Actions
+	
+	![Image alt text](images/database-actions.png)
+	
+3. Make sure you run these in your `TKDRADATA` SQL Worksheet (not the `ADMIN` user's worksheet). 
+	In the 'Data Tools' Section, Click on 'Data load'. You will see the below screen.
+	
+	![Image alt text](images/data-tools-data-load.png)
+	
+	Select 'Load Data' and 'Local File' as shown in below image and Click 'Next'.
+	
+	![Image alt text](images/load-data-and-local-file.png)
+	
+	Drag and drop the resources/NODES.csv and resources/EdGES.csv file and click on 'start' highlighted in below image. Run the Data Load Job. It will process in few seconds.
+
+	![Image alt text](images/drag-and-drop-and-start.png)
+	
+4. Verify whether the data is loaded into the Database successfully.
+	
+	2 tables NODES and EDGES should be created. Where NODES table with 974 rows and EDGES table with 3500 rows.
+	
+	```
+	SELECT COUNT(1) FROM NODES;
+	SELECT COUNT(1) FROM EDGES;
+	```
+	
+3. Adding the constraints for the newly created data. Where TABLE1 and TABLE2 Columns of EDGES table are foreign keys referencing to the TABLE_NAME column of NODES table
+  
+	~~~
+	alter table NODES add primary key (TABLE_NAME);
+	alter table EDGES add primary key (table_map_id);
+	alter table EDGES modify TABLE1 references NODES (TABLE_NAME);
+	alter table EDGES modify TABLE2 references NODES (TABLE_NAME);
+	commit;
+	~~~
+
+	
+
+
+
+
 ## Learn More
 
 ## Acknowledgements
 - **Author** - Mark Nelson, Developer Evangelist
-- **Contributors** - Mark Nelson, Developer Evangelist
-- **Last Updated By/Date** - Mark Nelson, Developer Evangelist, October 2022
+- **Contributors** - Mark Nelson, Praveen Hiremath
+- **Last Updated By/Date** - Praveen Hiremath, Developer Advocate, October 2022
