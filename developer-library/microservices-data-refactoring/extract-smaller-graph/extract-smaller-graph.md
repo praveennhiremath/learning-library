@@ -89,11 +89,6 @@ This lab assumes you have:
 	alter table EDGES_259_NEW modify TABLE2 references NODES_259_NEW (TABLE_NAME);
 	commit;
 	~~~
-4. Export the data from NODES_259_NEW and EDGES_259_NEW tables to CSV files
-	~~~
-	1. NODES_259_NEW.csv
-	2. EDGES_259_NEW.csv
-   ~~~
 
 
 Please **proceed to the next lab** to do so.
