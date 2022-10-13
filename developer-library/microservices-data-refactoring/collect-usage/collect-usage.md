@@ -160,6 +160,6 @@ Once this has been completed you are ready to **proceed to the next lab.**
 * [URL text 2](http://docs.oracle.com)
 
 ## Acknowledgements
-- **Author** - Mayank Tayal, Developer Advocate
+- **Author** - Mark Nelson, Developer Evangelist
 - **Contributors** - Mark Nelson, Developer Evangelist
-- **Last Updated By/Date** - Mayank Tayal, April 2022
+- **Last Updated By/Date** - Mark Nelson, Developer Evangelist, October 2022

@@ -287,14 +287,7 @@ In this task, we will create a set of metadata tables that we will use to store 
 Once this has been completed you are ready to **proceed to the next lab.**
 
 
-## Learn More
-
-*(optional - include links to docs, white papers, blogs, etc)*
-
-* [URL text 1](http://docs.oracle.com)
-* [URL text 2](http://docs.oracle.com)
-
 ## Acknowledgements
-- **Author** - Mayank Tayal, Developer Advocate
+- **Author** - Mark Nelson, Developer Evangelist
 - **Contributors** - Mark Nelson, Developer Evangelist
-- **Last Updated By/Date** - Mayank Tayal, April 2022
+- **Last Updated By/Date** - Mark Nelson, Developer Evangelist, October 2022

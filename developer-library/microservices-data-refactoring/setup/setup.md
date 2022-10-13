@@ -64,7 +64,7 @@ To work with the application code, you need to make a clone from the GitHub repo
 
     ```bash
     <copy>
-    git clone -b 22.2.2 --single-branch https://github.com/oracle/microservices-datadriven.git
+    git clone https://github.com/oracle/microservices-datadriven.git
     cp -r ./microservices-datadriven/workshops/microservices-data-refactoring $HOME;     
     rm -r -f microservices-datadriven; 
     cd microservices-data-refactoring;
@@ -107,6 +107,6 @@ Once the setup has been completed you are ready to **proceed to the next lab.**
 
 ## Acknowledgements
 
-- **Author** - Mayank Tayal, Developer Advocate
+- **Author** - Mark Nelson, Developer Evangelist
 - **Contributors** - Mark Nelson, Developer Evangelist
-- **Last Updated By/Date** - Mayank Tayal, April 2022
+- **Last Updated By/Date** - Mark Nelson, Developer Evangelist, October 2022
