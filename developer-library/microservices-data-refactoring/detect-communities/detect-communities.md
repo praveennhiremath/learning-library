@@ -10,7 +10,7 @@ Estimated Lab Time: 15 minutes
 
 In this lab, you will:
 
-* Create a graph in Graph Studio.
+* Create a graph in Graph Studio from the Graph Client.
 * Detect the communities using the Infomap.
 
 ### Prerequisites
@@ -19,22 +19,12 @@ This lab assumes you have:
 
 * All previous labs were completed successfully.
 
-## Task 1: Create the folder and clone the project from github. 
-1. Create a folder named 'DRA' and Navigate to DRA.
+## Task 1: Navigate to DRAGraphClient project folder and change the database and graph properties 
+1. Navigate to the project
    ~~~
-   mkdir DRA
-   cd DRA
+   cd microservices-data-refactoring/DRAGraphClient
    ~~~
-2. Clone the DRA Community Detection Client from the github.
-
-	~~~
-	git clone https://github.com/oracle/DRACommunityDetection.git 
-	~~~
-2. Navigate to the project
-   ~~~
-   cd DRACommunityDetection
-   ~~~
-3. Update the src/main/resources/db-config.properties file.
+2. Update the src/main/resources/db-config.properties file.
 
 	Update the value for the below properties.
 
