@@ -6,24 +6,22 @@
 
 Estimated Lab Time: 15 minutes
 
-### About <Product/Technology> (Optional)
-Enter background information here about the technology/feature or product used in this lab - no need to repeat what you covered in the introduction. Keep this section fairly concise. If you find yourself needing more than to sections/paragraphs, please utilize the "Learn More" section.
-
-### Objectives
-
-*List objectives for this lab using the format below*
+## Objectives
 
 In this lab, you will:
+
 * Create graph metadata tables that contain information about the application tables, and which we will be able to use to create a graph and perform community detection in a later lab
 * Compute the affinities between the tables
 
-### Prerequisites (Optional)
+## Prerequisites
 
 This lab assumes you have:
+
 * An Oracle account
 * All previous labs successfully completed
 
 Two possible approches can be taken here.
+
 1. We you want to go through the lab using simulated data, Then proceed with Task 1 and Task 2. Skip Task 3 steps.
 2. We you want to analyze and detect communities on existing medical records data, then follow instructions from Task 3. Skip Task 1 and Task 2.  
 
@@ -286,47 +284,49 @@ In this task, we will create a set of metadata tables that we will use to store 
     ```
     <copy>select * from table_map where table1 = 'DRA_1';</copy>
     ```
+
 If you followed instructions from Task 1 and Task 2, then skip Task 3 and proceed with Lab 4.
 
 ## Task 3: Alternative to running STS and determine affinities
 
-Skip Task 1, Task 2 and Run the Task 3 instructions if you don't have the STS/don't want to simulate data. We are going to load the data w.r.t medical field. The data exists in 2 CSV files. 
-- microservices-data-refactoring/livelabs/resources/NODES.csv - Where we have table names.
-- microservices-data-refactoring/livelabs/resources/EDGES.csv - Where we have source(TABLE1) and destination(TABLE2) columns with the edge weights(TOTAL_AFFINITY) column.
+Skip Task 1, Task 2 and Run the Task 3 instructions if you don't have the STS/don't want to simulate data. We are going to load the data w.r.t medical field. The data exists in 2 CSV files.
+
+* microservices-data-refactoring/livelabs/resources/NODES.csv - Where we have table names.
+* microservices-data-refactoring/livelabs/resources/EDGES.csv - Where we have source(TABLE1) and destination(TABLE2) columns with the edge weights(TOTAL_AFFINITY) column.
 
 1. Go to the compartment which we have created in the during the setup. In our case the compartment name is "dra". click on the "dradb" which also created during the setup.
-	
-	![ALT text is not available for this image](./images/compartment-and-adb.png " ")
-	
-2. Click on the Database Actions
-	
-	![Image alt text](./images/database-actions.png)
-	
-3. Make sure you run these in your `TKDRADATA` SQL Worksheet (not the `ADMIN` user's worksheet). 
-	In the 'Data Tools' Section, Click on 'Data load'. You will see the below screen.
-	
-	![Image alt text](./images/data-tools-data-load.png)
-	
-	Select 'Load Data' and 'Local File' as shown in below image and Click 'Next'.
-	
-	![Image alt text](./images/load-data-and-local-file.png)
-	
-	Drag and drop the resources/NODES.csv and resources/EdGES.csv file and click on 'start' highlighted in below image. Run the Data Load Job. It will process in few seconds.
 
-	![Image alt text](./images/drag-and-drop-and-start.png)
-	
+     ![ALT text is not available for this image](./images/compartment-and-adb.png " ")
+
+2. Click on the Database Actions
+
+    ![Image alt text](./images/database-actions.png)
+
+3. Make sure you run these in your `TKDRADATA` SQL Worksheet (not the `ADMIN` user's worksheet).
+
+    In the 'Data Tools' Section, Click on 'Data load'. You will see the below screen.
+
+     ![Image alt text](./images/data-tools-data-load.png)
+
+    Select 'Load Data' and 'Local File' as shown in below image and Click 'Next'.
+
+     ![Image alt text](./images/load-data-and-local-file.png)
+
+    Drag and drop the resources/NODES.csv and resources/EdGES.csv file and click on 'start' highlighted in below image. Run the Data Load Job. It will process in few seconds.
+
+    ![Image alt text](./images/drag-and-drop-and-start.png)
+
 4. Verify whether the data is loaded into the Database successfully.
-	
-	2 tables NODES and EDGES should be created. Where NODES table with 974 rows and EDGES table with 3500 rows.
+
+    Two tables NODES and EDGES should be created. Where NODES table with 974 rows and EDGES table with 3500 rows.
 	```
     <copy>
 	SELECT COUNT(1) FROM NODES;
 	SELECT COUNT(1) FROM EDGES;
     </copy>
 	```
-    
-	
-3. Adding the constraints for the newly created data. Where TABLE1 and TABLE2 Columns of EDGES table are foreign keys referencing to the TABLE_NAME column of NODES table
+
+5. Adding the constraints for the newly created data. Where TABLE1 and TABLE2 Columns of EDGES table are foreign keys referencing to the TABLE_NAME column of NODES table
   
 	```
     <copy>
@@ -338,11 +338,12 @@ Skip Task 1, Task 2 and Run the Task 3 instructions if you don't have the STS/do
     </copy>
 	```
 
-Once this has been completed you are ready to **proceed to the next lab.**	
+Once this has been completed you are ready to **proceed to the next lab.**
 
 ## Learn More
 
 ## Acknowledgements
-- **Author** - Mark Nelson, Developer Evangelist
-- **Contributors** - Mark Nelson, Praveen Hiremath
-- **Last Updated By/Date** - Praveen Hiremath, Developer Advocate, October 2022
+
+* **Author** - Mark Nelson, Developer Evangelist
+* **Contributors** - Mark Nelson, Praveen Hiremath
+* **Last Updated By/Date** - Praveen Hiremath, Developer Advocate, October 2022
