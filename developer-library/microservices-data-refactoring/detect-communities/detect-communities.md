@@ -6,21 +6,23 @@ In this lab, using the graphs which were created in the previous labs, we applie
 
 Estimated Lab Time: 15 minutes
 
-### Objectives
+## Objectives
 
 In this lab, you will:
 
 * Create a graph in Graph Studio from the Graph Client.
 * Detect the communities using the Infomap.
 
-### Prerequisites
+## Prerequisites
 
 This lab assumes you have:
 
 * All previous labs were completed successfully.
 
-## Task 1: Navigate to DRAGraphClient project folder and change the database and graph properties 
+## Task 1: Navigate to DRAGraphClient project folder and change the database and graph properties
+
 1. Navigate to the project
+
    ```
    <copy>
 	cd ${HOME}/microservices-data-refactoring/dra-graph-client
@@ -28,27 +30,29 @@ This lab assumes you have:
    ```
 2. Update the src/main/resources/db-config.properties file.
 
-	Update the value for the below properties.
+   Update the value for the below properties.
 
-	```
-	tenant   - tenant OCID
-	database - Name of the Database
-	username - Username to login to database
-	password - Password to login to database
-	endpoint - Endpoint for connecting to Autonomous Database instance
-	```
+    ```
+    tenant   - tenant OCID
+    database - Name of the Database
+    username - Username to login to database
+    password - Password to login to database
+    endpoint - Endpoint for connecting to Autonomous Database instance
+
+	 ```
 
 3. Update the src/main/resources/graph-config.properties file.
 
- 	Update the value for the below properties.
+    Update the value for the below properties.
 
-	```
-	graph_name : Name of the graph created in Graph Studio.
-	vertex_property_column : Column name of Tables
-	edge_property_source_column : Source Column name of the Edge
-	edge_property_destination_column : Destination Column name of the Edge
-	edge_property_weight_column : Column name of Edge weight
-	```
+   ```
+   graph_name : Name of the graph created in Graph Studio.
+   vertex_property_column : Column name of Tables
+   edge_property_source_column : Source Column name of the Edge
+   edge_property_destination_column : Destination Column name of the Edge
+   edge_property_weight_column : Column name of Edge weight
+
+   ```
 
 ## Task 2: Compile and Run the Community Detection
 
@@ -452,6 +456,6 @@ Please **proceed to the next lab** to do so.
 
 ## Acknowledgements
 
-* **Author** - Praveen Hiremath, Developer Advocate
-* **Contributors** -  Praveen Hiremath, Developer Advocate
-* **Last Updated By/Date** - Praveen Hiremath, Developer Advocate, October 2022
+- **Author** - Praveen Hiremath, Developer Advocate
+- **Contributors** -  Praveen Hiremath, Developer Advocate
+- **Last Updated By/Date** - Praveen Hiremath, Developer Advocate, October 2022

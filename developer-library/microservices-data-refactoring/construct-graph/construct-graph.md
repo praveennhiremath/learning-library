@@ -147,6 +147,6 @@ Please **proceed to the next lab** to do so.
 
 ## Acknowledgements
 
-* **Author** - Praveen Hiremath, Developer Advocate
-* **Contributors** -  Praveen Hiremath, Developer Advocate
-* **Last Updated By/Date** - Praveen Hiremath, Developer Advocate, October 2022
+- **Author** - Praveen Hiremath, Developer Advocate
+- **Contributors** -  Praveen Hiremath, Developer Advocate
+- **Last Updated By/Date** - Praveen Hiremath, Developer Advocate, October 2022
