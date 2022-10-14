@@ -79,7 +79,7 @@ This Task 2 is optional as we have already created the new user 'TKDRADATA' duri
 
 3. Enter your Autonomous Database account credentials (for example, `GRAPHUSER`) into the login screen:
  
-    ![ALT text is not available for this image](./images/graphstudio-login-graphuser.png " ")
+    ![ALT text is not available for this image](./images/graphstudio-login-graphuser1.png " ")
 
 4. Then click the **Sign In** button. You should see the studio home page.   
 
