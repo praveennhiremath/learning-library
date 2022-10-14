@@ -23,7 +23,7 @@ This lab assumes you have:
 1. Navigate to the project
    ```
    <copy>
-   cd ${HOME}/microservices-data-refactoring/dra-graph-client
+	cd ${HOME}/microservices-data-refactoring/dra-graph-client
    </copy>
    ```
 2. Update the src/main/resources/db-config.properties file.
