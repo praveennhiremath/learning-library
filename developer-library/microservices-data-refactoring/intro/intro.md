@@ -54,10 +54,10 @@ You may now **proceed to the next lab.**
 
 - [Oracle Graph Database](https://www.oracle.com/database/graph/)
 - [PL/SQL Packages and Types Reference](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/)
-- [https://developer.oracle.com/](https://developer.oracle.com/microservices)
+- [https://developer.oracle.com/microservices](https://developer.oracle.com/microservices)
 
 ## Acknowledgements
 
-* **Author** - Praveen Hiremath, Developer Advocate
+* **Author** - Mark Nelson, Developer Evangelist
 * **Contributors** - Mark Nelson, Praveen Hiremath
 * **Last Updated By/Date** - Praveen Hiremath, Developer Advocate, October 2022

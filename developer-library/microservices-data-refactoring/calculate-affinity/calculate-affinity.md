@@ -2,7 +2,7 @@
 
 ## Introduction
 
-*We create a metadata tables and populate the data using the SQL Tuning Sets which created in the previous lab. And the affinities are computed between the a
+We create a metadata tables and populate the data using the SQL Tuning Sets which created in the previous lab. And the affinities are computed between the tables.
 
 Estimated Lab Time: 15 minutes
 
@@ -23,7 +23,7 @@ This lab assumes you have:
 Three possible options to proceed are:
 
 1. Using simulated data created in Lab 2, skip task 3.
-2. If you have your own STS, replace sqlset_name='tkdradata' with your own sqlset_name={your_own}.
+2. If you have your own STS, replace sqlset-name='tkdradata' with your own sqlset-name={your_own}.
 3. You can start at Task 3 to use SQL tuning set from Health Care as an example.
 
 ## Task 1: Create Graph Metadata Tables
