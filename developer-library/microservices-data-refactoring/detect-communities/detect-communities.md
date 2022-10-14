@@ -30,10 +30,9 @@ Now go back cloud shell.
    ```
 
 2. Navigate to the project
-
    ```
    <copy>
-	cd ${HOME}/microservices-data-refactoring/dra-graph-client
+	 cd ${HOME}/microservices-data-refactoring/dra-graph-client
    </copy>
    ```
 3. Update the src/main/resources/db-config.properties file.
@@ -65,14 +64,14 @@ Now go back cloud shell.
     Update the value for the below properties.
 
    ```
-   graph_name : Name of the graph created in Graph Studio.
-   vertex_property_column : Column name of Tables
-   edge_property_source_column : Source Column name of the Edge
-   edge_property_destination_column : Destination Column name of the Edge
-   edge_property_weight_column : Column name of Edge weight
+    graph_name : Name of the graph created in Graph Studio.
+    vertex_property_column : Column name of Tables
+    edge_property_source_column : Source Column name of the Edge
+    edge_property_destination_column : Destination Column name of the Edge
+    edge_property_weight_column : Column name of Edge weight
 
    ```
-	Save and exit.
+    Save and exit.
 	
 ## Task 2: Compile and Run the Community Detection
 
@@ -95,7 +94,7 @@ Here, We are using the smaller graph created in Lab 5. You can also run on main 
 	```
  	Where
    * com.oracle.ms.app.InfomapGraphClient - Main class which loads the graph and runs the Infomap to identify the Clusters.
-   * WHERE 5 IS "MaxNumberOfIterations". You can change it to any positive integer
+   * 5 is MaxNumberOfIterations for Infomap Algorithm. You can change it to any positive integer
 
 *Output*
 

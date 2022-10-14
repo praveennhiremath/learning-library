@@ -22,7 +22,7 @@ This lab assumes you have:
 
 1. For Example, Here we consider the node named "RAD_REPORT_DETAIL" from Single Node Cluster .
 
-2. Get the Ids of the Nodes of cluster to which we wanna move the single node cluster/or any Nodes of other clusters. Get the Matched Ids and update the TOTAL_AFFINITY to 1.
+2. Get the Ids of the Nodes of cluster to which we want move the single node cluster/or any Nodes of other clusters. Get the Matched Ids and update the TOTAL_AFFINITY to 1.
 NOTE : We must have an edge from Node to be moved to the Nodes in the Target Cluster.
 Go to SQL developer and execute below query.
 
