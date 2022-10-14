@@ -91,6 +91,15 @@ This lab assumes you have:
 	~~~
 
 
+## Task 4: Alternative approach for creation of smaller graphs
+
+Directly upload the csv files into DB as followed in Lab 3 -> Task 3
+
+The only change is use the below files to upload and complete the Task 3 from Lab 3
+- microservices-data-refactoring/livelabs/resources/NODES_259_NEW.csv - Where we have table names.
+- microservices-data-refactoring/livelabs/resources/EDGES_259_NEW.csv - Where we have source(TABLE1) and destination(TABLE2) columns with the edge 
+
+
 Please **proceed to the next lab** to do so.
 
 ## Acknowledgements
