@@ -22,7 +22,7 @@ This lab assumes you have:
 ## Task 1: Navigate to DRAGraphClient project folder and change the database and graph properties 
 1. Navigate to the project
    ~~~
-   cd microservices-data-refactoring/DRAGraphClient
+   cd microservices-data-refactoring/dra-graph-client
    ~~~
 2. Update the src/main/resources/db-config.properties file.
 
@@ -34,7 +34,7 @@ This lab assumes you have:
 	username - Username to login to database
 	password - Password to login to database
 	endpoint - Endpoint for connecting to Autonomous Database instance
-	~~~~
+	~~~
 
 3. Update the src/main/resources/graph-config.properties file.
 
@@ -341,7 +341,7 @@ The table names with the same community Ids formed the clusters below.
  | 33        | RENEW_NOTIFICATION_PERIOD  |
  ------------------------------------------
  ~~~
-## Task 4 : Analysis of nelwy formed clusters
+## Task 3 : Analysis of nelwy formed clusters
 
 * There are 63 Nodes in this below Cluster :
 * Main Table for foraming a cluster is PRSNL where major number of tables are connected with this table.
