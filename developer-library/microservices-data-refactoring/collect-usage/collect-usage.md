@@ -6,16 +6,16 @@ This lab walks you through the steps to create the sample tables and generate so
 
 Estimated Lab Time: 10 minutes
 
-## Objectives
+### Objectives
 
 In this lab, you will:
 
 * Create a set of application tables
-* Create an SQL Tuning Set
+* Create a SQL Tuning Set
 * Simulate workload running against the application tables
 * Load the workload data into the SQL Tuning Set
 
-## Prerequisites (Optional)
+### Prerequisites
 
 This lab assumes you have:
 

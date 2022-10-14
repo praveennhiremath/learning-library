@@ -6,14 +6,14 @@ In this lab, using the graphs which were created in the previous labs, we applie
 
 Estimated Lab Time: 15 minutes
 
-## Objectives
+### Objectives
 
 In this lab, you will:
 
 * Create a graph in Graph Studio from the Graph Client.
 * Detect the communities using the Infomap.
 
-## Prerequisites
+### Prerequisites
 
 This lab assumes you have:
 
@@ -21,17 +21,31 @@ This lab assumes you have:
 
 ## Task 1: Navigate to DRAGraphClient project folder and change the database and graph properties
 
-1. Navigate to the project
+Now go back cloud shell.
+1. set the required enviroment variables as we did in the setup
+	```
+   <copy>
+	export DRA_HOME=${HOME}/microservices-data-refactoring
+   </copy>
+   ```
+
+2. Navigate to the project
 
    ```
    <copy>
 	cd ${HOME}/microservices-data-refactoring/dra-graph-client
    </copy>
    ```
-2. Update the src/main/resources/db-config.properties file.
+3. Update the src/main/resources/db-config.properties file.
+
+	```
+   <copy>
+	vi src/main/resources/db-config.properties
+   </copy>
+   ```
 
    Update the value for the below properties.
-
+	
     ```
     tenant   - tenant OCID
     database - Name of the Database
@@ -40,9 +54,14 @@ This lab assumes you have:
     endpoint - Endpoint for connecting to Autonomous Database instance
 
 	 ```
-
-3. Update the src/main/resources/graph-config.properties file.
-
+	Save and exit.
+	
+4. Update the src/main/resources/graph-config.properties file.
+	```
+   <copy>
+	vi src/main/resources/graph-config.properties
+   </copy>
+   ```
     Update the value for the below properties.
 
    ```
@@ -53,7 +72,8 @@ This lab assumes you have:
    edge_property_weight_column : Column name of Edge weight
 
    ```
-
+	Save and exit.
+	
 ## Task 2: Compile and Run the Community Detection
 
 Here, We are using the smaller graph created in Lab 5. You can also run on main graph which is created in Lab 3 or any data which you loaded through SQL Tuning Sets.
@@ -70,14 +90,12 @@ Here, We are using the smaller graph created in Lab 5. You can also run on main 
 
 	```
 	<copy>
-	mvn exec:java -Dexec.mainClass=com.oracle.ms.app.InfomapGraphClient -Dexec.args="MaxNumberOfIterations"
+	mvn exec:java -Dexec.mainClass=com.oracle.ms.app.InfomapGraphClient -Dexec.args="5"
 	</copy>
 	```
-
  	Where
-
    * com.oracle.ms.app.InfomapGraphClient - Main class which loads the graph and runs the Infomap to identify the Clusters.
-   * MaxNumberOfIterations - Maximum number of Iterations, the stopping criteria for Infomap algorithm. A positive integer.
+   * WHERE 5 IS "MaxNumberOfIterations". You can change it to any positive integer
 
 *Output*
 
@@ -356,12 +374,13 @@ The table names with the same community Ids formed the clusters below.
 ## Task 3 : Analysis of nelwy formed clusters
 
 * There are 63 Nodes in this below Cluster :
-* Main Table for foraming a cluster is PRSNL where major number of tables are connected with this table.
+* Main Table for forming a cluster is PRSNL where major number of tables are connected with this table.
 
-* All the tables related to Personal and tracking of those personal details has formed the formed one cluster.
+* Patient and his details, patient allergies, patient tracking and schedules, and his diagnosis details formed a cluster.
 
-* The Person will have the Problems and He consults the Doctor. Doctor will diagnoise the Patient. And the tracking of the patient is carried out
-If you see below the Below tables are related to Person who is a patient. Here the Person, his Diagnosis, Tracking the activity of the Person has formed one community. Similarly there are other communities formed as well.
+* The Person will have the Problems and He consults the Doctor. Doctor will diagnoise the Patient. And the tracking of the patient is carried out.
+
+If you see the below tables are related to Person who is a patient. Here the Person, his Diagnosis, Tracking the activity of the Person has formed one community. Similarly there are other communities formed as well.
 
  ```
  ALLERGY

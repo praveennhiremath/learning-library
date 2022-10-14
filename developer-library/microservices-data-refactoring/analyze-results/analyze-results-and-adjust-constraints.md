@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this lab, We will analyze the communities formed and we will move the single node cluster or any other node to target cluster which we find it suitable.
+In this lab, we will analyze the communities formed and will move the single node cluster or any other node to target cluster which we find it suitable.
 
 Estimated Lab Time: 15 minutes
 
@@ -19,10 +19,11 @@ This lab assumes you have:
 
 ## Task 1: Find the Node to move to the target cluster
 
-1. For Example, Here we are consider the node named 'RAD_REPORT_DETAIL' from Single Node Cluster .
+1. For Example, Here we consider the node named "RAD_REPORT_DETAIL" from Single Node Cluster .
 	
 2. Get the Ids of the Nodes of cluster to which we wanna move the single node cluster/or any Nodes of other clusters. Get the Matched Ids and update the TOTAL_AFFINITY to 1. 
 NOTE : We must have an edge from Node to be moved to the Nodes in the Target Cluster. 
+Go to SQL developer and execute below query.
 	~~~
 	UPDATE MED_RECS_AD_TABLE_MAP SET TOTAL_AFFINITY = 1 WHERE TABLE_MAP_ID IN 
 	(SELECT DISTINCT(TABLE_MAP_ID) AS MATCHED_IDS_OF_EDGES_TO_BE_UPDATED FROM MED_RECS_AD_TABLE_MAP

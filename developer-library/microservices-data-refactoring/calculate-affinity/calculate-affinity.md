@@ -2,28 +2,29 @@
 
 ## Introduction
 
-*Describe the lab in one or two sentences, for example:* This lab walks you through the steps to ...
+*We create a metadata tables and populate the data using the SQL Tuning Sets which created in the previous lab. And the affinities are computed between the a
 
 Estimated Lab Time: 15 minutes
 
-## Objectives
+### Objectives
 
 In this lab, you will:
 
 * Create graph metadata tables that contain information about the application tables, and which we will be able to use to create a graph and perform community detection in a later lab
 * Compute the affinities between the tables
 
-## Prerequisites
+### Prerequisites
 
 This lab assumes you have:
 
 * An Oracle account
 * All previous labs successfully completed
 
-Two possible approches can be taken here.
+Three possible options to proceed are:
 
-1. We you want to go through the lab using simulated data, Then proceed with Task 1 and Task 2. Skip Task 3 steps.
-2. We you want to analyze and detect communities on existing medical records data, then follow instructions from Task 3. Skip Task 1 and Task 2.  
+1. Using simulated data created in Lab 2, skip task 3.
+2. If you have your own STS, replace sqlset_name='tkdradata' with your own sqlset_name={your_own}.
+3. You can start at Task 3 to use SQL tuning set from Health Care as an example.
 
 ## Task 1: Create Graph Metadata Tables
 
@@ -296,25 +297,25 @@ Skip Task 1, Task 2 and Run the Task 3 instructions if you don't have the STS/do
 
 1. Go to the compartment which we have created in the during the setup. In our case the compartment name is "dra". click on the "dradb" which also created during the setup.
 
-     ![ALT text is not available for this image](./images/compartment-and-adb.png " ")
+     ![This image shows the screen after login to the OCI](./images/compartment-and-adb.png " ")
 
 2. Click on the Database Actions
 
-    ![Image alt text](./images/database-actions.png)
+    ![Database actions takes you the SQL Developer Screen](./images/database-actions.png)
 
 3. Make sure you run these in your `TKDRADATA` SQL Worksheet (not the `ADMIN` user's worksheet).
 
     In the 'Data Tools' Section, Click on 'Data load'. You will see the below screen.
 
-     ![Image alt text](./images/data-tools-data-load.png)
+     ![This image shows screen of Data Load to upload your own data](./images/data-tools-data-load.png)
 
     Select 'Load Data' and 'Local File' as shown in below image and Click 'Next'.
 
-     ![Image alt text](./images/load-data-and-local-file.png)
+     ![This image shows screen of options to load CSV files](./images/load-data-and-local-file.png)
 
     Drag and drop the resources/NODES.csv and resources/EdGES.csv file and click on 'start' highlighted in below image. Run the Data Load Job. It will process in few seconds.
 
-    ![Image alt text](./images/drag-and-drop-and-start.png)
+    ![This image shows screen to drag and drop the CSV files](./images/drag-and-drop-and-start.png)
 
 4. Verify whether the data is loaded into the Database successfully.
 

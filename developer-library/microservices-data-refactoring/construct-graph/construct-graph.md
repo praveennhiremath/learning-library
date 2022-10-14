@@ -6,13 +6,13 @@ In this lab, we will create the graph model from the data which are extracted fr
 
 Estimated Lab Time: 15 minutes
 
-## Objectives
+### Objectives
 
 In this lab :
 
 * Using the Graph Studio, we create a model and the graph from the tables created in Lab 2
 
-## Prerequisites (Optional)
+### Prerequisites (Optional)
 
 This lab assumes you have:
 
@@ -139,7 +139,6 @@ This Task 2 is optional as we have already created the new user 'TKDRADATA' duri
 
    ![ALT text is not available for this image](./images/23-jobs-create-graph1.png " ")  
 
-   You can then interactively query and visualize the graph in a notebook after it's loaded into memory.
 
 Please **proceed to the next lab** to do so.
 

@@ -4,7 +4,7 @@
 
 This workshop will help you understand a technique for refactoring data stores for microservices. 
 
-- Estimated Time: 30 minutes
+- Estimated Time: 90 minutes
 
 ### About Product/Technology
 
@@ -54,10 +54,10 @@ You may now **proceed to the next lab.**
 
 - [Oracle Graph Database](https://www.oracle.com/database/graph/)
 - [PL/SQL Packages and Types Reference](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/)
-- [https://developer.oracle.com/](https://developer.oracle.com/)
+- [https://developer.oracle.com/](https://developer.oracle.com/microservices)
 
 ## Acknowledgements
 
-- **Author** - Mark Nelson, Developer Evangelist
-- **Contributors** - Mark Nelson, Developer Evangelist 
-- **Last Updated By/Date** - Mark Nelson, October 2022
+* **Author** - Praveen Hiremath, Developer Advocate
+* **Contributors** - Mark Nelson, Praveen Hiremath
+* **Last Updated By/Date** - Praveen Hiremath, Developer Advocate, October 2022
