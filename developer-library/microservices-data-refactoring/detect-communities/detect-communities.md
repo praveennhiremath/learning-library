@@ -30,9 +30,9 @@ Now go back cloud shell.
    ```
 
 2. Navigate to the project
-   ```
+	```
    <copy>
-	 cd ${HOME}/microservices-data-refactoring/dra-graph-client
+	cd ${HOME}/microservices-data-refactoring/dra-graph-client
    </copy>
    ```
 3. Update the src/main/resources/db-config.properties file.
@@ -63,14 +63,14 @@ Now go back cloud shell.
    ```
     Update the value for the below properties.
 
-   ```
+    ```
     graph_name : Name of the graph created in Graph Studio.
     vertex_property_column : Column name of Tables
     edge_property_source_column : Source Column name of the Edge
     edge_property_destination_column : Destination Column name of the Edge
     edge_property_weight_column : Column name of Edge weight
 
-   ```
+    ```
     Save and exit.
 	
 ## Task 2: Compile and Run the Community Detection
@@ -381,7 +381,7 @@ The table names with the same community Ids formed the clusters below.
 
 If you see the below tables are related to Person who is a patient. Here the Person, his Diagnosis, Tracking the activity of the Person has formed one community. Similarly there are other communities formed as well.
 
- ```
+  ```
  ALLERGY
  ALLERGY_COMMENT
  CE_EVENT_ACTION
@@ -448,7 +448,7 @@ If you see the below tables are related to Person who is a patient. Here the Per
 
  ```
 Below are the 16 tables which formed a cluster on Medication Deatils and also medical dispense.
-```
+  ```
  ORDER_PRODUCT              
  WARNING_LABEL              
  MED_INGRED_SET             
