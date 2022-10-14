@@ -106,15 +106,15 @@ This Task 2 is optional as we have already created the new user 'TKDRADATA' duri
 
     And `EDGES` is a suggested edge table.
 
-  ![ALT text is not available for this image](./images/create-graph-suggested-model.png " ")    
+  ![ALT text is not available for this image](./images/create-graph-suggested-model1.png " ")    
   
 
 5.  Since these are directed edges, a best practice is verifying that the direction is correct.  
-    In this instance we want to **confirm** that the direction is from `from_acct_id` to `to_acct_id`.  
+    In this instance we want to **confirm** that the direction is from `table1` to `table2`.  
 
     Note the `Source Vertex` and `Destination Vertex` information on the left.  
  
-    ![ALT text is not available for this image](images/wrong-edge-direction.png " ")  
+    ![ALT text is not available for this image](images/wrong-edge-direction1.png " ")  
 
     **Notice** that the direction is wrong. The Source Key is `table2` instead of what we want, which is `table1`.  
 
@@ -122,7 +122,7 @@ This Task 2 is optional as we have already created the new user 'TKDRADATA' duri
 
    Note that the `Source Vertex` is now the correct one, i.e. the `TABLE1`.
 
-   ![ALT text is not available for this image](images/reverse-edge-result.png " ") 
+   ![ALT text is not available for this image](images/reverse-edge-result1.png " ") 
 
 
    
