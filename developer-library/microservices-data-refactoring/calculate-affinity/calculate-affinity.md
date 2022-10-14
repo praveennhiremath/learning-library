@@ -23,6 +23,9 @@ This lab assumes you have:
 * An Oracle account
 * All previous labs successfully completed
 
+Two possible approches can be taken here.
+1. We you want to go through the lab using simulated data, Then proceed with Task 1 and Task 2. Skip Task 3 steps.
+2. We you want to analyze and detect communities on existing medical records data, then follow instructions from Task 3. Skip Task 1 and Task 2.  
 
 ## Task 1: Create Graph Metadata Tables
 
@@ -283,8 +286,7 @@ In this task, we will create a set of metadata tables that we will use to store 
     ```
     <copy>select * from table_map where table1 = 'DRA_1';</copy>
     ```
-
-Once this has been completed you are ready to **proceed to the next lab.**
+If you followed instructions from Task 1 and Task 2, then skip Task 3 and proceed with Lab 4.
 
 ## Task 3: Alternative to running STS and determine affinities
 
@@ -336,10 +338,7 @@ Skip Task 1, Task 2 and Run the Task 3 instructions if you don't have the STS/do
     </copy>
 	```
 
-	
-
-
-
+Once this has been completed you are ready to **proceed to the next lab.**	
 
 ## Learn More
 
