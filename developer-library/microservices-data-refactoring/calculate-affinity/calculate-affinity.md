@@ -4,7 +4,7 @@
 
 *Describe the lab in one or two sentences, for example:* This lab walks you through the steps to ...
 
-Estimated Lab Time: -- minutes
+Estimated Lab Time: 15 minutes
 
 ### About <Product/Technology> (Optional)
 Enter background information here about the technology/feature or product used in this lab - no need to repeat what you covered in the introduction. Keep this section fairly concise. If you find yourself needing more than to sections/paragraphs, please utilize the "Learn More" section.
@@ -296,7 +296,7 @@ Skip Task 1, Task 2 and Run the Task 3 instructions if you don't have the STS/do
 
 1. Go to the compartment which we have created in the during the setup. In our case the compartment name is "dra". click on the "dradb" which also created during the setup.
 	
-	![Image alt text](./images/compartment-and-adb.png)
+	![ALT text is not available for this image](./images/compartment-and-adb.png " ")
 	
 2. Click on the Database Actions
 	

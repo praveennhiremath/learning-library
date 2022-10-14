@@ -29,6 +29,8 @@ This lab assumes you have:
 
 ## Task 2: Create the web access and graph-enabled user
 
+This Task 2 is optional as we have already created the new user 'TKDRADATA' during the setup. Do this only if you want to create new user other than 'TKDRADATA'. 
+
 1. Login as the ADMIN user for your Autonomous Database instance. 
 
     ![ALT text is not available for this image](./images/create-user/login.png " ")
