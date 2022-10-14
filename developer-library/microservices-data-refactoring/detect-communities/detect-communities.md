@@ -22,7 +22,7 @@ This lab assumes you have:
 ## Task 1: Navigate to DRAGraphClient project folder and change the database and graph properties 
 1. Navigate to the project
    ~~~
-   cd microservices-data-refactoring/dra-graph-client
+   cd ${HOME}/microservices-data-refactoring/dra-graph-client
    ~~~
 2. Update the src/main/resources/db-config.properties file.
 
@@ -49,6 +49,8 @@ This lab assumes you have:
 	~~~~
 
 ## Task 2: Compile and Run the Community Detection
+
+Here, We are using the smaller graph created in Lab 5. You can also run on main graph which is created in Lab 3 or any data which you loaded through SQL Tuning Sets.
 
 1. Compile the maven project
 
