@@ -446,6 +446,8 @@ Below are the 16 tables which formed a cluster on Medication Deatils and also me
 ```
 There are single node clusters as well. If we analyse and can say that these nodes should be part of any cluster, we can do move a node to target cluster. Its explained in the next lab.
 
+Please **proceed to the next lab** to do so.
+
 ## Learn More
 
 ## Acknowledgements
