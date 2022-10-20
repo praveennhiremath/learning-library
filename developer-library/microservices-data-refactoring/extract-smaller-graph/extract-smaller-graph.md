@@ -99,9 +99,9 @@ Run the community detection on main graph which is created in Lab 3 or any data 
    ```
 
    Where
-   * com.oracle.ms.app.InfomapGraphClient - Main class which loads the graph and runs the Infomap to identify the Clusters.
-   * 5 is MaxNumberOfIterations for Infomap Algorithm. You can change it to any positive integer
-   
+   - com.oracle.ms.app.InfomapGraphClient - Main class which loads the graph and runs the Infomap to identify the Clusters.
+   - 5 is MaxNumberOfIterations for Infomap Algorithm. You can change it to any positive integer
+
    Output
 
    Job Details:
@@ -109,8 +109,9 @@ Run the community detection on main graph which is created in Lab 3 or any data 
     ```text
    name=Environment Creation - 18 GBstype= ENVIRONMENT_CREATION created_by= ADMIN
    Graph : PgxGraph[name=MED_REC_PG_OBJ_G, N=974, E=3499, created=1664544333468]
+   ```
    
-3. The ouput of Infomap will have the community Ids with the nodes in that community as shown below
+3. The ouput of Infomap will have the Community Ids with the nodes in that community as shown below
 
     ```text
     +----------------------------------------+
@@ -128,8 +129,8 @@ Run the community detection on main graph which is created in Lab 3 or any data 
     | 0         | PRSNL_ORG_RELTN            |
     ------------------------------------------
      ```
-	
-	Here we have shown only for 10 nodes. Similarly we will have communities detected for all the 974 nodes. 
+
+    Here we have shown only for first 10 nodes for reference. Similarly we will have communities detected for all the 974 nodes. Detail analysis is done on the smaller graph in next lab.
 
 ## Task 3: Choose the clusters from the result of Infomap from the main graph
 
