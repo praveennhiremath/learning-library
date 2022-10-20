@@ -219,15 +219,18 @@ Go to SQL developer and execute below queries using `TKDRADATA` user.
     commit;
     </copy>
     ```
+Once this has been completed you are ready to **proceed to the next lab**.
 
 ## Task 6: Alternative approach for creation of smaller graphs
 
+This task is not required if you have followed through Task 1 to Task 5.
+ 
 Download the below files from the cloud shell and directly upload the same csv files into DB as followed in Lab 3 -> Task 3.
 
 - `microservices-data-refactoring/livelabs/resources/NODES_259_NEW.csv` - Where we have table names.
 - `microservices-data-refactoring/livelabs/resources/EDGES_259_NEW.csv` - Where we have source(TABLE1) and destination(TABLE2) columns with the edge
 
-Please **proceed to the next lab** to do so.
+Once this has been completed you are ready to **proceed to the next lab**.
 
 ## Learn More
 
