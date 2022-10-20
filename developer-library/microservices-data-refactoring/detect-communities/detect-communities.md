@@ -21,7 +21,7 @@ This lab assumes you have:
 
 ## Task 1: Change the graph properties
 
-1. Make sure you are on the same session of cloud shell. If not, set the required enviroment variables as we did in the setup. 
+1. Make sure you are on the same session of cloud shell. If not, set the required enviroment variables as we did in the setup.
 
     ```text
    <copy>
@@ -428,9 +428,9 @@ Here, We are using the smaller graph created in Lab 5. You can also run on main 
    V500_EVENT_SET_EXPLODE
    ```
 
-    Below are the 16 tables which formed a cluster on Medication Deatils and also medical dispense.
+   Below are the 16 tables which formed a cluster on Medication Deatils and also medical dispense.
 
-    ```text
+   ```text
    ORDER_PRODUCT              
    WARNING_LABEL              
    MED_INGRED_SET             
