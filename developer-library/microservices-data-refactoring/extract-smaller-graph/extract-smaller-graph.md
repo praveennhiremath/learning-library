@@ -76,7 +76,7 @@ Go to SQL developer and execute below queries using `TKDRADATA` user.
 
 ## Task 3: Create new tables for the extracted data
 
-1. Create new table 'NODES_259_NEW' and populated the records of the connected nodes by running following SQL.
+1. Create new table `NODES_259_NEW` and populated the records of the connected nodes by running following SQL.
 
     ```text
     <copy>
@@ -84,7 +84,7 @@ Go to SQL developer and execute below queries using `TKDRADATA` user.
     </copy>
     ```
 
-2. Create new table 'EDGES_259_NEW' and populated the records of the connected edges by running following SQL.
+2. Create new table `EDGES_259_NEW` and populated the records of the connected edges by running following SQL.
 
     ```text
     <copy>
@@ -95,7 +95,7 @@ Go to SQL developer and execute below queries using `TKDRADATA` user.
     </copy>
     ```
 
-3. Adding primary and foreign key constraints for the newly created tables 'NODES_259_NEW' and 'EDGES_259_NEW' by running following SQL.
+3. Adding primary and foreign key constraints for the newly created tables `NODES_259_NEW` and `EDGES_259_NEW` by running following SQL.
 
     ```text
     <copy>
@@ -113,8 +113,8 @@ Directly upload the csv files into DB as followed in Lab 3 -> Task 3
 
 The only change is use the below files to upload and complete the Task 3 from Lab 3
 
-- microservices-data-refactoring/livelabs/resources/NODES_259_NEW.csv - Where we have table names.
-- microservices-data-refactoring/livelabs/resources/EDGES_259_NEW.csv - Where we have source(TABLE1) and destination(TABLE2) columns with the edge
+- `microservices-data-refactoring/livelabs/resources/NODES_259_NEW.csv` - Where we have table names.
+- `microservices-data-refactoring/livelabs/resources/EDGES_259_NEW.csv` - Where we have source(TABLE1) and destination(TABLE2) columns with the edge
 
 Please **proceed to the next lab** to do so.
 
