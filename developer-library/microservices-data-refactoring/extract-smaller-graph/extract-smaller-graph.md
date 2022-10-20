@@ -165,7 +165,7 @@ These are few of the clusters which formed after running community detection on 
 
 Go to SQL developer and execute below queries using `TKDRADATA` user.
 
-1. Replace #{TABLES-FROM-SELECTED-CLUSTERS-IN-SQL-FORMAT} with values copied from Task 1 -> Step 4 and run the below SQL to fetch from columns TABLE1 and TABLE2 names from the EDGES table and combine the output and remove the duplicates.
+1. Replace #{TABLES-FROM-SELECTED-CLUSTERS-IN-SQL-FORMAT} with values copied from Task 3 -> Step 4 and run the below SQL to fetch from columns TABLE1 and TABLE2 names from the EDGES table and combine the output and remove the duplicates.
 
     ```text
     <copy>
@@ -189,7 +189,7 @@ Go to SQL developer and execute below queries using `TKDRADATA` user.
 
 ## Task 5: Create new tables for the extracted data
 
-1. Create new table `NODES_259_NEW` and populated the records of the connected nodes by running following SQL.
+1. Create new table `NODES_259_NEW` and replace the `#{TABLES-INCLUDING-CONNECTED-NODES}` copied in previous step(Task 4, Step 2). Populate the records of the connected nodes by running following SQL.
 
     ```text
     <copy>
@@ -197,7 +197,7 @@ Go to SQL developer and execute below queries using `TKDRADATA` user.
     </copy>
     ```
 
-2. Create new table `EDGES_259_NEW` and populated the records of the connected edges by running following SQL.
+2. Create new table `EDGES_259_NEW` and replace the `#{TABLES-FROM-SELECTED-CLUSTERS-IN-SQL-FORMAT}` by copying values from Task 3, Step 4. Populate the records of the connected edges by running following SQL.
 
     ```text
     <copy>
