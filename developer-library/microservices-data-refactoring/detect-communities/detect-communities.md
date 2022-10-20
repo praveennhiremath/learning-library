@@ -25,21 +25,21 @@ Now go back to the cloud shell.
 
 1. Set the required enviroment variables as we did in the setup
 
-   ```text
+    ```text
    <copy>
     export DRA_HOME=${HOME}/microservices-data-refactoring
    </copy>
    ```
 
 2. Navigate to the project
-   ```text
+    ```text
    <copy>
     cd ${HOME}/microservices-data-refactoring/dra-graph-client
    </copy>
    ```
 3. Update the src/main/resources/db-config.properties file.
 
-   ```text
+    ```text
    <copy>
     vi src/main/resources/db-config.properties
    </copy>
@@ -57,14 +57,14 @@ Now go back to the cloud shell.
    Save and exit.
 
 4. Update the src/main/resources/graph-config.properties file.
-   ```text
+    ```text
    <copy>
     vi src/main/resources/graph-config.properties
    </copy>
    ```
     Update the value for the below properties.
 
-   ```text
+    ```text
     graph_name : Name of the graph created in Graph Studio.
     vertex_property_column : Column name of Tables
     edge_property_source_column : Source Column name of the Edge
@@ -79,7 +79,7 @@ Here, We are using the smaller graph created in Lab 5. You can also run on main 
 
 1. Compile the maven project
 
-   ```text
+    ```text
    <copy>
     mvn compile
    </copy>
@@ -87,7 +87,7 @@ Here, We are using the smaller graph created in Lab 5. You can also run on main 
 
 2. Execute the project to see the identified clusters using the Infomap Algorithm
 
-   ```text
+    ```text
    <copy>
    mvn exec:java -Dexec.mainClass=com.oracle.ms.app.InfomapGraphClient -Dexec.args="5"
    </copy>
