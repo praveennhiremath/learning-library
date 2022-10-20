@@ -430,7 +430,7 @@ Here, We are using the smaller graph created in Lab 5. You can also run on main 
 
    Below are the 16 tables which formed a cluster on Medication Deatils and also medical dispense.
 
-   ```text
+    ```text
    ORDER_PRODUCT              
    WARNING_LABEL              
    MED_INGRED_SET             

@@ -37,7 +37,7 @@ This lab assumes you have:
     </copy>
     ```
 
-3. Run the Infomap again on the updated data . Follow the same steps from Lab 4(Detect Communities Lab, Task 2) and check that the required is moved to the intended clusters.
+3. Run the Infomap algorithm again on the updated data. Follow the same steps from Lab 6, Task 2 and verify whether the required is moved to the intended clusters.
 
 ## Learn More
 

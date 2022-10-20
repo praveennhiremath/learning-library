@@ -40,7 +40,7 @@ This lab assumes you have:
 
     ![ALT text is not available for this image](./images/gs-graphuser-home-page1.png " ")
 
-## Task 2: Create a graph of accounts and transactions from the corresponding tables
+## Task 2: Create a graph of nodes and edges from the corresponding tables
 
 1. Click the **Models** icon to navigate to the start of the modeling workflow.  
    Then click **Create**.  
@@ -96,13 +96,12 @@ This lab assumes you have:
 
    ![ALT text is not available for this image](./images/23-jobs-create-graph1.png " ")  
 
-
-Please **proceed to the next lab** to do so.
+Once this has been completed you are ready to **proceed to the next lab**.
 
 ## Learn More
 
 ## Acknowledgements
 
-- **Author** - Praveen Hiremath, Developer Advocate
-- **Contributors** -  Praveen Hiremath, Developer Advocate
-- **Last Updated By/Date** - Praveen Hiremath, Developer Advocate, October 2022
+* **Author** - Praveen Hiremath, Developer Advocate
+* **Contributors** -  Praveen Hiremath, Developer Advocate
+* **Last Updated By/Date** - Praveen Hiremath, Developer Advocate, October 2022
