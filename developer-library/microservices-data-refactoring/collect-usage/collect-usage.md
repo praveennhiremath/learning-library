@@ -22,11 +22,13 @@ This lab assumes you have:
 * An Oracle account
 * All previous labs successfully completed
 
+All the sql scripts and shell scripts available in 'microservices-data-refactoring/livelabs/datacollector-sts' which is cloned in Lab 1.
+
 ## Task 1: Log in to the SQL Worksheet
 
 When you ran the `setup.sh` script in the previous lab, it created a database user called `TKDRADATA` for you and granted that user the necessary permissions to complete the rest of the labs.
 
-1. Navigate to the Details page of the Autonomous Database that was provisioned by the `setup.sh` script.  In this example, the database name is "DRADB."  Click **Database Actions**.
+1. Login into Oracle Cloud as ADMIN with the password you entered during setup. Navigate to the Details page of the Autonomous Database that was provisioned by the `setup.sh` script.  In this example, the database name is "DRADB."  Click **Database Actions**.
 
   ![Image alt text](images/adb-main-page.png)
 
@@ -34,7 +36,7 @@ When you ran the `setup.sh` script in the previous lab, it created a database us
 
   ![Image alt text](images/sql-card.png)
 
-1. In the top right corner you can see that you are logged in as the `ADMIN` user.  We want to use the `TKDRADATA` user for the rest of this workshop.  Click on the `ADMIN` to open the user menu and select **Sign Out**.
+3. In the top right corner you can see that you are logged in as the `ADMIN` user.  We want to use the `TKDRADATA` user for the rest of this workshop.  Click on the `ADMIN` to open the user menu and select **Sign Out**.
 
   ![Image alt text](images/sign-out-from-admin.png)
 

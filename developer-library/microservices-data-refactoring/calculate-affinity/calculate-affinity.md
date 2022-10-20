@@ -292,8 +292,13 @@ If you followed instructions from Task 1 and Task 2, then skip Task 3 and procee
 
 Skip Task 1, Task 2 and Run the Task 3 instructions if you don't have the STS/don't want to simulate data. We are going to load the data w.r.t medical field. The data exists in 2 CSV files.
 
-* microservices-data-refactoring/livelabs/resources/NODES.csv - Where we have table names.
-* microservices-data-refactoring/livelabs/resources/EDGES.csv - Where we have source(TABLE1) and destination(TABLE2) columns with the edge weights(TOTAL_AFFINITY) column.
+1. Download the below files from the cloud shell to local as shown below.
+
+     ![This image shows the screen of cloud shell to download files](./images/download-from-cloud-shell.png " ")
+	 
+	File Path in cloud shell.
+	* microservices-data-refactoring/livelabs/resources/NODES.csv - Where we have table names.
+	* microservices-data-refactoring/livelabs/resources/EDGES.csv - Where we have source(TABLE1) and destination(TABLE2) columns with the edge weights(TOTAL_AFFINITY) column.
 
 1. Go to the compartment which we have created in the during the setup. In our case the compartment name is "dra". click on the "dradb" which also created during the setup.
 
@@ -303,7 +308,7 @@ Skip Task 1, Task 2 and Run the Task 3 instructions if you don't have the STS/do
 
     ![Database actions takes you the SQL Developer Screen](./images/database-actions.png)
 
-3. Make sure you run these in your `TKDRADATA` SQL Worksheet (not the `ADMIN` user's worksheet).
+3. Make sure you run these in your `TKDRADATA` SQL Worksheet (not the `ADMIN` user's worksheet). If you do not recall how to navigate to SQL Worksheet, please refer back to Lab 2, Task 2, Step 1 for a reminder. 
 
     In the 'Data Tools' Section, Click on 'Data load'. You will see the below screen.
 
@@ -319,7 +324,7 @@ Skip Task 1, Task 2 and Run the Task 3 instructions if you don't have the STS/do
 
 4. Verify whether the data is loaded into the Database successfully.
 
-    Two tables NODES and EDGES should be created. Where NODES table with 974 rows and EDGES table with 3500 rows.
+    Two tables NODES and EDGES should be created. Where NODES table with 974 rows and EDGES table with 3499 rows.
 	```
     <copy>
 	SELECT COUNT(1) FROM NODES;

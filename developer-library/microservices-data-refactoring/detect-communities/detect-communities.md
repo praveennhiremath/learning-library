@@ -21,8 +21,9 @@ This lab assumes you have:
 
 ## Task 1: Navigate to DRAGraphClient project folder and change the database and graph properties
 
-Now go back cloud shell.
-1. set the required enviroment variables as we did in the setup
+Now go back to the cloud shell.
+
+1. Set the required enviroment variables as we did in the setup
 	```
    <copy>
 	export DRA_HOME=${HOME}/microservices-data-refactoring
