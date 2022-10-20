@@ -101,14 +101,14 @@ Here, We are using the smaller graph created in Lab 5. You can also run on main 
 
    Job Details:
 
-   ```text
+    ```text
    name=Environment Creation - 18 GBstype= ENVIRONMENT_CREATION created_by= ADMIN
    Graph : PgxGraph[name=MED_REC_PG_OBJ_G, N=259, E=972, created=1664544333468]
    ```
 
-   The table names with the same community Ids formed the clusters below.
+    The table names with the same community Ids formed the clusters below.
 
-```text
+    ```text
 +----------------------------------------+
  | Community | TABLE_NAME                 |
  +----------------------------------------+
@@ -385,7 +385,7 @@ Here, We are using the smaller graph created in Lab 5. You can also run on main 
 
   If you see the below tables are related to Person who is a patient. Here the Person, his Diagnosis, Tracking the activity of the Person has formed one community. Similarly there are other communities formed as well.
 
-   ```text
+    ```text
    ALLERGY
    ALLERGY_COMMENT
    CE_EVENT_ACTION
@@ -451,9 +451,9 @@ Here, We are using the smaller graph created in Lab 5. You can also run on main 
    V500_EVENT_SET_EXPLODE
    ```
 
-   Below are the 16 tables which formed a cluster on Medication Deatils and also medical dispense.
+    Below are the 16 tables which formed a cluster on Medication Deatils and also medical dispense.
 
-   ```text
+    ```text
    ORDER_PRODUCT              
    WARNING_LABEL              
    MED_INGRED_SET             
