@@ -110,7 +110,6 @@ Run the community detection on main graph which is created in Lab 3 or any data 
    name=Environment Creation - 18 GBstype= ENVIRONMENT_CREATION created_by= ADMIN
    Graph : PgxGraph[name=MED_REC_PG_OBJ_G, N=974, E=3499, created=1664544333468]
    ```
-   
 3. The ouput of Infomap will have the Community Ids with the nodes in that community as shown below
 
     ```text
@@ -136,22 +135,22 @@ Run the community detection on main graph which is created in Lab 3 or any data 
 
 These are few of the clusters which formed after running community detection on the main graph we have created in the Lab 4. We take the nodes from these clusters and the connected edges to these nodes and dump the data to newly created tables.
 
-1. Below are the tables from the cluster related to Personal Details of Patient. No action required here.
+1. Below are the tables from the cluster related to Personal Details of Patient. Look into the below tables in the output and check all the tables from Patient related cluster. These tables will have the same community id in the output of Infomap. No action required here. 
 
     ```text
     ESO_TRIGGER,PRSNL_ORG_RELTN,PROBLEM_COMMENT,MATCH_TAG_PARMS,CODE_CDF_EXT,CREDENTIAL,FILL_CYCLE_BATCH,DEPT_ORD_STAT_SECURITY,WORKING_VIEW_FREQ_INTERVAL,PRSNL_RELTN,PE_STATUS_REASON,PERSON_CODE_VALUE_R,CMT_CONCEPT,SCH_LOCK,PROC_PRSNL_RELTN,TRACKING_EVENT_HISTORY,CODE_VALUE_SET,PERSON_PRSNL_RELTN,DOSE_CALCULATOR_UOM,CLINICAL_SERVICE_RELTN,ENCNTR_PRSNL_RELTN,PREDEFINED_PREFS,PSN_PPR_RELTN,CODE_VALUE_EXTENSION,PRSNL,CODE_VALUE,PRSNL_RELTN_ACTIVITY,CMT_CONCEPT_EXTENSION
    ```
 
-2. Below are the tables from the cluster related to Medications. No action required here.
+2. Below are the tables from the cluster related to Medications. Look into the below tables in the output and check all the tables from Medications related cluster. These tables will have the same community id in the output of Infomap. No action required here. 
 
-   ```text
-    ORDER_CATALOG_ITEM_R,WARNING_LABEL_XREF,PACKAGE_TYPE,MED_IDENTIFIER,MED_PACKAGE_TYPE,MED_PRODUCT,MANUFACTURER_ITEM,WARNING_LABEL,MED_FLEX_OBJECT_IDX,MED_DEF_FLEX,ITEM_LOCATION_COST,QUANTITY_ON_HAND,MED_DISPENSE,MEDICATION_DEFINITION,MED_COST_HX,MED_INGRED_SET,MED_OE_DEFAULTS,RX_CURVE
+    ```text
+      ORDER_CATALOG_ITEM_R,WARNING_LABEL_XREF,PACKAGE_TYPE,MED_IDENTIFIER,MED_PACKAGE_TYPE,MED_PRODUCT,MANUFACTURER_ITEM,WARNING_LABEL,MED_FLEX_OBJECT_IDX,MED_DEF_FLEX,ITEM_LOCATION_COST,QUANTITY_ON_HAND,MED_DISPENSE,MEDICATION_DEFINITION,MED_COST_HX,MED_INGRED_SET,MED_OE_DEFAULTS,RX_CURVE
    ```
 
-3. Below are the tables from the cluster related to Orders. No action required here.
+3. Below are the tables from the cluster related to Orders. Look into the below tables in the output and check all the tables from Orders related cluster. These tables will have the same community id in the output of Infomap. No action required here. 
 
-   ```text
-    RENEW_NOTIFICATION_PERIOD,ORDER_REVIEW,BILL_ONLY_PROC_RELTN,FILM_USAGE,ORDER_CATALOG_SYNONYM,ORDERS,ORDER_INGREDIENT,ORDER_CATALOG,SCH_APPT_ORD,ORDER_ACTION,ORDER_IV_INFO,RAD_PROCEDURE_ASSOC,ORDER_NOTIFICATION,RAD_PRIOR_PREFS,RAD_FOLLOW_UP_RECALL,ACTIVITY_DATA_RELTN,ECO_QUEUE
+    ```text
+      RENEW_NOTIFICATION_PERIOD,ORDER_REVIEW,BILL_ONLY_PROC_RELTN,FILM_USAGE,ORDER_CATALOG_SYNONYM,ORDERS,ORDER_INGREDIENT,ORDER_CATALOG,SCH_APPT_ORD,ORDER_ACTION,ORDER_IV_INFO,RAD_PROCEDURE_ASSOC,ORDER_NOTIFICATION,RAD_PRIOR_PREFS,RAD_FOLLOW_UP_RECALL,ACTIVITY_DATA_RELTN,ECO_QUEUE
    ```
 
 4. Consider the tables from above clusters related to Patient, Medications, and Orders. Mergering the tables from these clusters, by enclosing all tables in single quote with comma separator, forms the IN QUERY format in SQL. We call below text format as 'TABLES-FROM-SELECTED-CLUSTERS-IN-SQL-FORMAT' as alias. So that we can replace text in queries used in Task 2.
