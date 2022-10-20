@@ -50,7 +50,7 @@ When you ran the `setup.sh` script in the previous lab, it created a database us
 
 7. Enter your commands in the worksheet. You can use the shortcuts [Control-Enter] or [Command-Enter] to run the command and view the Query Result (tabular format). Clear your worksheet by clicking the trash:
 
-    ![Image alt text](images/sql-worksheet.png)
+    ![Image alt text](images/sql-worksheet1.png)
 
 ## Task 2: Prepare the application schema
 
