@@ -19,7 +19,7 @@ This lab assumes you have:
 
 * All previous labs were completed successfully.
 
-## Task 1: Navigate to DRAGraphClient project folder and change the database and graph properties
+## Task 1: Change the graph properties
 
 1. Make sure you are on the same session of cloud shell. If not, set the required enviroment variables as we did in the setup. 
 
