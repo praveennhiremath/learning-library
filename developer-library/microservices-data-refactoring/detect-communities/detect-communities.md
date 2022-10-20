@@ -21,9 +21,7 @@ This lab assumes you have:
 
 ## Task 1: Navigate to DRAGraphClient project folder and change the database and graph properties
 
-Now go back to the cloud shell.
-
-1. Set the required enviroment variables as we did in the setup
+1. Make sure you are on the same session of cloud shell. If not, set the required enviroment variables as we did in the setup. 
 
     ```text
    <copy>
@@ -37,26 +35,9 @@ Now go back to the cloud shell.
     cd ${HOME}/microservices-data-refactoring/dra-graph-client
    </copy>
    ```
-3. Update the src/main/resources/db-config.properties file.
 
-    ```text
-   <copy>
-    vi src/main/resources/db-config.properties
-   </copy>
-   ```
+3. Update the property `graph_name` of newly created graph on smaller data in src/main/resources/graph-config.properties file.
 
-   Update the value for the below properties.
-    ```text
-    tenant   - tenant OCID
-    database - Name of the Database
-    username - Username to login to database
-    password - Password to login to database
-    endpoint - Endpoint for connecting to Autonomous Database instance
-    ```
-
-   Save and exit.
-
-4. Update the src/main/resources/graph-config.properties file.
     ```text
    <copy>
     vi src/main/resources/graph-config.properties
@@ -66,10 +47,6 @@ Now go back to the cloud shell.
 
     ```text
     graph_name : Name of the graph created in Graph Studio.
-    vertex_property_column : Column name of Tables
-    edge_property_source_column : Source Column name of the Edge
-    edge_property_destination_column : Destination Column name of the Edge
-    edge_property_weight_column : Column name of Edge weight
 
     ```
     Save and exit.
@@ -103,7 +80,7 @@ Here, We are using the smaller graph created in Lab 5. You can also run on main 
 
     ```text
    name=Environment Creation - 18 GBstype= ENVIRONMENT_CREATION created_by= ADMIN
-   Graph : PgxGraph[name=MED_REC_PG_OBJ_G, N=259, E=972, created=1664544333468]
+   Graph : PgxGraph[name=MED_REC_PG_OBJ_259_G, N=259, E=972, created=1664544333468]
    ```
 
     The table names with the same community Ids formed the clusters below.

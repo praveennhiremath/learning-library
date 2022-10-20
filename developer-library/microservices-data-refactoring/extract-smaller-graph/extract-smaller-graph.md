@@ -1,14 +1,13 @@
-# Extract a Smaller Graph from the Original Graph
+# Detect communities on the main graph and extract a smaller graph
 
 ## Introduction
 
-In this lab, we have identified the known clusters from which the smaller graph is extracted. We create a tables with Nodes and Edges only for these data to do  further analysis and identify clusters using Infomap algorithm. Use of small graph helps us understand the communities detected.
+In this lab, we will run the community detection algorithm on the main graph and identifies the clusters. Using these clusters, the smaller graph is extracted by choosing only few clusters to shorten the data. We create the tables with nodes and edges only for these data for further analysis to identify clusters using Infomap algorithm. Use of small graph helps us understand the communities detected.
 
 Estimated Lab Time: 15 minutes
 
 ### Objectives
-
-
+- Run the community detection algorithm to detect communities.
 - Extract the smaller graph from the original graph as the analysis will be easier and easy to understand as well.
 - Create the CSV files for Nodes and Edges for the smaller graphs.
 
@@ -18,7 +17,121 @@ This lab assumes you have:
 - An Oracle account
 - This lab requires an Autonomous Database - Shared Infrastructure or Autonomous Transaction Processing - Shared Infrastructure account.
 
-## Task 1: Choose the clusters from the result of Infomap from the main graph
+## Task 1: Navigate to DRAGraphClient project folder and change the database and graph properties
+
+Now go back to the cloud shell.
+
+1. Set the required enviroment variables as we did in the setup.
+
+    ```text
+   <copy>
+    export DRA_HOME=${HOME}/microservices-data-refactoring
+   </copy>
+   ```
+
+2. Navigate to the project.
+
+    ```text
+   <copy>
+    cd ${HOME}/microservices-data-refactoring/dra-graph-client
+   </copy>
+   ```
+
+3. Update the src/main/resources/db-config.properties file.
+
+    ```text
+   <copy>
+    vi src/main/resources/db-config.properties
+   </copy>
+   ```
+
+   Update the value for the below properties.
+
+    ```text
+    tenant   - tenant OCID
+    database - Name of the Database
+    username - Username to login to database
+    password - Password to login to database
+    endpoint - Endpoint for connecting to Autonomous Database instance
+    ```
+
+   Save and exit.
+
+4. Update the src/main/resources/graph-config.properties file.
+
+    ```text
+   <copy>
+    vi src/main/resources/graph-config.properties
+   </copy>
+   ```
+
+    Update the value for the below properties.
+
+    ```text
+    graph_name : Name of the graph created in Graph Studio.
+    vertex_property_column : Column name of Tables
+    edge_property_source_column : Source Column name of the Edge
+    edge_property_destination_column : Destination Column name of the Edge
+    edge_property_weight_column : Column name of Edge weight
+
+    ```
+
+    Save and exit.
+
+## Task 2: Compile and Run the Community Detection
+
+Run the community detection on main graph which is created in Lab 3 or any data which you loaded through SQL Tuning Sets.
+
+1. Compile the maven project
+
+    ```text
+   <copy>
+    mvn compile
+   </copy>
+   ```
+
+2. Execute the project to see the identified clusters using the Infomap Algorithm
+
+    ```text
+   <copy>
+   mvn exec:java -Dexec.mainClass=com.oracle.ms.app.InfomapGraphClient -Dexec.args="5"
+   </copy>
+   ```
+
+   Where
+   * com.oracle.ms.app.InfomapGraphClient - Main class which loads the graph and runs the Infomap to identify the Clusters.
+   * 5 is MaxNumberOfIterations for Infomap Algorithm. You can change it to any positive integer
+   
+   Output
+
+   Job Details:
+
+    ```text
+   name=Environment Creation - 18 GBstype= ENVIRONMENT_CREATION created_by= ADMIN
+   Graph : PgxGraph[name=MED_REC_PG_OBJ_G, N=974, E=3499, created=1664544333468]
+   
+3. The ouput of Infomap will have the community Ids with the nodes in that community as shown below
+
+    ```text
+    +----------------------------------------+
+    | Community | TABLE_NAME                 |
+    +----------------------------------------+
+    | 0         | PRSNL_RELTN_ACTIVITY       |
+    | 0         | CLINICAL_SERVICE_RELTN     |
+    | 0         | ENCNTR_PRSNL_RELTN         |
+    | 0         | PE_STATUS_REASON           |
+    | 0         | PCT_CARE_TEAM              |
+    | 0         | PERSON_PERSON_RELTN        |
+    | 0         | PERSON_INFO                |
+    | 0         | DEPT_ORD_STAT_SECURITY     |
+    | 0         | PERSON_PRSNL_RELTN         |
+    | 0         | PRSNL_ORG_RELTN            |
+    ------------------------------------------
+     ```
+	
+	Here we have shown only for 10 nodes. Similarly we will have communities detected for all the 974 nodes. 
+
+## Task 3: Choose the clusters from the result of Infomap from the main graph
 
 These are few of the clusters which formed after running community detection on the main graph we have created in the Lab 4. We take the nodes from these clusters and the connected edges to these nodes and dump the data to newly created tables.
 
@@ -48,7 +161,7 @@ These are few of the clusters which formed after running community detection on 
     </copy>
     ```
 
-## Task 2: Execute the SQL queries to get all the connected nodes for the selected clusters
+## Task 4: Execute the SQL queries to get all the connected nodes for the selected clusters
 
 Go to SQL developer and execute below queries using `TKDRADATA` user.
 
@@ -74,7 +187,7 @@ Go to SQL developer and execute below queries using `TKDRADATA` user.
     </copy>
     ```
 
-## Task 3: Create new tables for the extracted data
+## Task 5: Create new tables for the extracted data
 
 1. Create new table `NODES_259_NEW` and populated the records of the connected nodes by running following SQL.
 
@@ -107,11 +220,9 @@ Go to SQL developer and execute below queries using `TKDRADATA` user.
     </copy>
     ```
 
-## Task 4: Alternative approach for creation of smaller graphs
+## Task 6: Alternative approach for creation of smaller graphs
 
-Directly upload the csv files into DB as followed in Lab 3 -> Task 3
-
-The only change is use the below files to upload and complete the Task 3 from Lab 3
+Download the below files from the cloud shell and directly upload the same csv files into DB as followed in Lab 3 -> Task 3.
 
 - `microservices-data-refactoring/livelabs/resources/NODES_259_NEW.csv` - Where we have table names.
 - `microservices-data-refactoring/livelabs/resources/EDGES_259_NEW.csv` - Where we have source(TABLE1) and destination(TABLE2) columns with the edge
