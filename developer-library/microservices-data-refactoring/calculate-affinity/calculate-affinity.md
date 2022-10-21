@@ -4,7 +4,7 @@
 
 We create a metadata tables and populate the data using the SQL Tuning Sets which created in the previous lab. And the affinities are computed between the tables.
 
-Estimated Lab Time: 15 minutes
+Estimated Lab Time: 20 minutes
 
 ### Objectives
 
